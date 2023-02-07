@@ -1,0 +1,65 @@
+:root {
+  --color-one: #ececec;
+  --color-two: #22b2da;
+  --color-three: #f1d18a;
+  --color-white: #fff;
+  --color-darkGray: #3e4a61;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: calc(0.5vw + 1rem);
+}
+
+/*---------------------------Universial Container-----------------------*/
+.main-container {
+  width: min(95%, 90rem);
+  margin-inline: auto;
+}
+
+/*--------------------------Navbar-------------------------------*/
+.navbar-container {
+  background: var(--color-one);
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  text-decoration: none;
+  color: var(--color-two);
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+.nav-links li {
+  list-style-type: none;
+  padding: 1rem 2rem;
+}
+.nav-links li a {
+  text-decoration: none;
+  color: var(--color-two);
+}
+
+/*--------------------------Intro Main Section-------------------*/
+.intro-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.intro-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5rem;
+}
+.lg-text {
+  font-size: 3rem;
+  color: var(--color-white);
+}
