@@ -4,6 +4,23 @@ from datetime import datetime
 db = SQLAlchemy()
 
 
+class User(db.Model):
+
+    __tablename__ = "users"
+
+    user_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    first_name = db.Column(db.String(50), nullable=False)
+    last_name = db.Column(db.String(50), nullable=False)
+    email = db.Column(db.String(50), nullable=False, unique=True)
+    password = db.Column(db.String(50), nullable=False, unique=True)
+
+    member = db.relationship("Member", back_populates="user")
+    event = db.relationship("Event", back_populates="user")
+
+    def __repr__(self):
+        return f"<User user_id={self.member_id} first_name={self.first_name}>"
+
+
 class Member(db.Model):
     
     __tablename__ = "members"
@@ -11,14 +28,15 @@ class Member(db.Model):
     member_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
-    email = db.Column(db.String(50), nullable=False, unique=True)
-    password = db.Column(db.String(50), nullable=False, unique=True)
+    email = db.Column(db.String(50), nullable=True, unique=True)
     address = db.Column(db.String(50), nullable=True)
-    phone_number = db.Column(db.Integer, nullable=True)
+    phone_number = db.Column(db.String(20), nullable=True)
     image = db.Column(db.String, nullable=True)
     house_hold = db.Column(db.Integer, nullable=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
 
-    event = db.relationship("Event", back_populates="member")
+    user = db.relationship("User", back_populates="member")
+    # event = db.relationship("Event", back_populates="member")
 
     def __repr__(self):
         return f"<Member member_id={self.member_id} first_name={self.first_name}>"
@@ -32,9 +50,13 @@ class Event(db.Model):
     start_date = db.Column(db.DateTime, nullable=True)
     end_date = db.Column(db.DateTime, nullable=True)
     description = db.Column(db.String(500), nullable=True)
-    member_id = db.Column(db.Integer, db.ForeignKey("members.member_id"))
 
-    member = db.relationship("Member", back_populates="event")
+    # member_id = db.Column(db.Integer, db.ForeignKey("members.member_id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
+
+    user = db.relationship("User", back_populates="event")
+
+    # member = db.relationship("Member", back_populates="event")
 
     def __repr__(self):
         return f"<Event event_id={self.event_id} description={self.description}>"
