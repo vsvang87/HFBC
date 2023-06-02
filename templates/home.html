@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="../static/css/base.css"/>
+{% endblock %}
+
+{% block body %}
+<nav>
+    <div class="navbar-container">
+      <div class="center">
+        <a href="#">HFBC</a>
+        <ul>
+          <li><a href="/host_event">Event</a></li>
+          <li><a href="/give">Give</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/logout">Log Out</a></li>
+        </ul>
+        <div class="search-bar">
+          <form action="#">
+            <input type="text" name="search" placeholder="Search"/>
+          <input type="submit" value="search"/>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section-1">
+    <div class="h-container">
+      <div class="center">
+        <form action="#" method="POST">
+          <div class="input-group">
+            <label for="address">
+              Address
+            </label>
+            <input type="text" name="address" required/>
+          </div>
+          <div class="input-group">
+            <label for="phone">
+              Phone:
+            </label>
+            <input type="phone" name="phone" required/>
+          </div>
+          <div class="input-group">
+            <label for="household">
+              Number of household:
+            </label>
+            <input type="number" name="household" required/>
+          </div>
+          <div class="button-group">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock %}
+{% block footer %}{% endblock %}

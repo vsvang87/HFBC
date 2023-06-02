@@ -1,0 +1,12 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.center {
+  width: min(95%, 110rem);
+  margin-inline: auto;
+}
