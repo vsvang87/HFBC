@@ -1,13 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New User</title>
-</head>
-<body>
-  <h1>New User</h1>
+{% extends "base.html" %}
+{% block title %}New User{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="../static/css/base.css"/>
+{% endblock %}
+{% block body %}
+<nav>
+    <div class="center">
+      <div class="navbar-container">
+        <a href="/">HFBC</a>
+        <ul>
+           <li><a href="/about">About</a></li>
+           <li><a href="/ministries">Ministries</a></li>
+          <li><a href="/give">Give</a></li>
+          <li><a href="/login">Log in</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="n-container">
+    <div class="center">
+
+       <h1>New User</h1>
 
   <form action="/new_user" method="POST">
     <div class="input-group">
@@ -27,9 +42,14 @@
       <input type="password" name="password" required/>
     </div>
     <div class="input-group">
-      <button type="submit">Submit</button>
+      <button type="submit">Create User</button>
     </div>
   </form>
 
-</body>
-</html>
+    </div>
+  </div>
+
+  {% endblock %}
+  {% block footer %}
+
+  {% endblock %}

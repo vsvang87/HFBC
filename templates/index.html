@@ -1,18 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HFBC</title>
-</head>
-<body>
-  <nav>
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block head %}
+
+<link rel="stylesheet" href="../static/css/base.css"/>
+{% endblock %}
+
+{% block body %}
+<nav>
     <div class="center">
       <div class="navbar-container">
         <a href="/">HFBC</a>
         <ul>
-          <li><a href="/event">Event</a></li>
+           <li><a href="/about">About</a></li>
+           <li><a href="/ministries">Ministries</a></li>
+          <li><a href="/give">Give</a></li>
           <li><a href="/login">Log in</a></li>
         </ul>
       </div>
@@ -22,9 +24,22 @@
   <section>
     <div class="sect-1-container">
       <div class="center">
-        <h1>Events display here</h1>
+        <h1>All Events</h1>
+           
+          {% if events %}
+
+          {% for event in events %}
+              <p>Start Date:{{ event.start_date }} - End Date: {{ event.end_date }}</p>
+    
+              <p>Event: {{ event.description }}</p>
+          {% endfor %}
+
+          {% endif %}
+        
       </div>
     </div>
   </section>
-</body>
-</html>
+{% endblock %}
+{% block footer %}
+
+{% endblock %}

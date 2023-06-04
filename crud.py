@@ -7,9 +7,9 @@ def create_user(first_name, last_name, email, password):
 
     return user
 #--------------------Create New Member--------------------#
-def create_member(first_name, last_name, email, address, phone_number, house_hold, user_id, image="https://res.cloudinary.com/dha9labk1/image/upload/v1685577322/vven5uk7a6nmn0otakaj.jpg"):
+def create_member(first_name, last_name, email, address, city, state, zipcode, phone_number, house_hold, user_id):
 
-    member = Member(first_name=first_name, last_name=last_name, email=email, address=address, phone_number=phone_number, image=image, house_hold=house_hold, user_id=user_id)
+    member = Member(first_name=first_name, last_name=last_name, email=email, address=address, city=city, state=state, zipcode=zipcode, phone_number=phone_number, house_hold=house_hold, user_id=user_id)
 
     return member
 
@@ -18,6 +18,11 @@ def create_event(start_date, end_date, description, user_id):
     event = Event(start_date=start_date, end_date=end_date, description=description, user_id=user_id)
 
     return event
+
+#-------------------Get Member_Id-------------------#
+def get_member(member_id):
+
+    return Member.query.filter(Member.member_id == member_id).all()
 
 #-----------------------Get User Id-------------------------#
 def get_user_by_id(user_id):
@@ -44,6 +49,17 @@ def get_member_by_password(password):
 
     return Member.query.filter(Member.password == password).first()
 
+#------------------------Get Event---------------------------------#
+def get_event(event_id):
+
+    return Event.query.filter(Event.event_id == event_id).all()
+
+#----------------------Update Image From Cloudinary----------#
+def update_img(image, user):
+
+    user.image = image
+
+    return image
 
 
 if __name__ == '__main__':

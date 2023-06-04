@@ -2,6 +2,12 @@ from flask import Flask, jsonify, render_template, redirect, session,request,fla
 from model import db, User, Member, Event, connect_to_db
 import crud
 
+import cloudinary.uploader
+import os
+
+CLOUDINARY_KEY = os.environ['CLOUDINARY_KEY']
+CLOUDINARY_SECRET = os.environ['CLOUDINARY_SECRET']
+CLOUD_NAME = "dha9labk1"
 
 app = Flask(__name__)
 app.secret_key = 'SECRETS'
@@ -12,14 +18,17 @@ app.config['STRIPE_SECRET_KEY'] = 'sk_test_51NExkJJ4c4ZamGfpZ9jw4LLvtqckTvIZ1Rw8
 
 #----------------------------Home Page------------------------------------#
 @app.route('/')
-def home():
+def index():
 
-    return render_template('index.html')
+    events = Event.query.all()
+
+    return render_template('index.html', events=events)
+
 
 #----------------------------Login-----------------------------------------#
 @app.route('/login')
 def login():
-
+    
     return render_template("login.html")
 
 #---------------------------Login Post-----------------------------------#
@@ -72,9 +81,9 @@ def create_new_users():
 @app.route("/home")
 def user_login_home():
 
-
     return render_template("home.html")
 
+#-------------------------Add Church Member-------------------#
 @app.route("/home", methods=["POST"])
 def create_member():
 
@@ -82,6 +91,9 @@ def create_member():
     last_name = request.form.get("last_name")
     email = request.form.get("email")
     address = request.form.get("address")
+    city = request.form.get("city")
+    state = request.form.get("state")
+    zipcode = request.form.get("zipcode")
     phone = request.form.get("phone")
     house_hold = request.form.get("house_hold")
 
@@ -92,7 +104,7 @@ def create_member():
         flash("Have to logged in to add member", "error")
         return redirect("/home")
     else:
-        member = crud.create_member(first_name, last_name, email, address, phone, house_hold,user_id)
+        member = crud.create_member(first_name, last_name, email, address, city, state, zipcode, phone, house_hold,user_id)
         db.session.add(member)
         db.session.commit()
         flash("Member has been add successfully", "success")
@@ -104,7 +116,9 @@ def create_member():
 @app.route("/host_event")
 def event():
 
-    return render_template("host_event.html")
+    events = Event.query.all()
+
+    return render_template("host_event.html", events=events)
 
 
 @app.route("/host_event", methods=["POST"])
@@ -133,7 +147,7 @@ def give():
 
     return render_template("give.html")
 
-@app.foute("/thanks")
+@app.route("/thanks")
 def thanks():
 
     return redirect("/give")
@@ -149,11 +163,37 @@ def ministry():
 
     return render_template("ministries.html")
 
-
+#--------------------Display All Members----------------#
 @app.route("/all_members")
 def all_members():
 
-    return render_template("all_members.html")
+    user_id = session['user_id']
+    user = crud.get_user_by_id(user_id)
+
+    all_members = Member.query.all()
+
+    return render_template("all_members.html", all_members=all_members, user=user)
+
+
+@app.route("/post-form-data", methods=["POST"])
+def upload_picture():
+
+    my_file = request.files['my-file']
+    result = cloudinary.uploader.upload(my_file, api_key = CLOUDINARY_KEY, api_secret = CLOUDINARY_SECRET, cloud_name = CLOUD_NAME)
+
+    image = result['secure_url']
+    #getting user session
+    user_id = session['user_id'] 
+  
+    user = crud.get_user_by_id(user_id)
+
+    crud.update_img(image, user)
+
+    db.session.add(user)
+    db.session.commit()
+
+    return redirect("/all_members")
+
 #--------------------Search--------------------------#
 # @app.route("/search/<query>", methods=["POST"])
 # def search(query):

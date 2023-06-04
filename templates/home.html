@@ -8,13 +8,10 @@
 <nav>
     <div class="navbar-container">
       <div class="center">
-        <a href="#">HFBC</a>
+        <a href="/home">HFBC</a>
         <ul>
-          <li><a href="/host_event">Event</a></li>
-          <li><a href="/ministries">Ministries</a></li>
+          <li><a href="/host_event">Host Event</a></li>
            <li><a href="/all_members">All Members</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/give">Give</a></li>
           <li><a href="/logout">Log Out</a></li>
         </ul>
         <div class="search-bar">
@@ -33,7 +30,16 @@
   <section class="section-1">
     <div class="h-container">
       <div class="center">
-
+        <h1>Add Member</h1>
+        {% with messages = get_flashed_messages(with_categories=true)%}
+          {% if messages %}
+          {% for category, message in messages %}
+          <div class="flash-message-div">
+            <p class="{{ category }}">{{ message }}</p>
+          </div>
+          {% endfor %}
+          {% endif %}
+        {% endwith %}
         <form action="/home" method="POST">
 
           <div class="input-group">
@@ -61,6 +67,25 @@
             </label>
             <input type="text" name="address" required/>
           </div>
+           <div class="input-group">
+            <label for="city">
+              City
+            </label>
+            <input type="text" name="city" required/>
+          </div>
+           <div class="input-group">
+            <label for="state">
+              State
+            </label>
+            <input type="text" name="state" required/>
+          </div>
+          <div class="input-group">
+            <label for="zipcode">
+              Zipcode
+            </label>
+            <input type="text" name="zipcode" required/>
+          </div>
+
           <div class="input-group">
             <label for="phone">
               Phone:
@@ -74,13 +99,12 @@
             <input type="number" name="house_hold" required/>
           </div>
           <div class="button-group">
-            <input type="submit" value="submit"/>
+            <input type="submit" value="Add"/>
           </div>
         </form>
       </div>
     </div>
   </section>
-
 
 {% endblock %}
 {% block footer %}{% endblock %}
