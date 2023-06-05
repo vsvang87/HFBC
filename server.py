@@ -81,6 +81,13 @@ def create_new_users():
 @app.route("/home")
 def user_login_home():
 
+    email = session['user_email']
+    user = crud.get_user_by_email(email)
+
+    
+    user_id = session["user_id"]
+    # events = crud.get_events(user_id)
+
     return render_template("home.html")
 
 #-------------------------Add Church Member-------------------#
@@ -115,6 +122,7 @@ def create_member():
 #----------------------Host Event-----------------------#
 @app.route("/host_event")
 def event():
+
 
     events = Event.query.all()
 
@@ -167,8 +175,8 @@ def ministry():
 @app.route("/all_members")
 def all_members():
 
-    user_id = session['user_id']
-    user = crud.get_user_by_id(user_id)
+    email = session['user_email']
+    user = crud.get_user_by_email(email)
 
     all_members = Member.query.all()
 
@@ -181,14 +189,14 @@ def upload_picture():
     my_file = request.files['my-file']
     result = cloudinary.uploader.upload(my_file, api_key = CLOUDINARY_KEY, api_secret = CLOUDINARY_SECRET, cloud_name = CLOUD_NAME)
 
-    image = result['secure_url']
+
+    image_url = result['secure_url']
     #getting user session
-    user_id = session['user_id'] 
-  
-    user = crud.get_user_by_id(user_id)
-
-    crud.update_img(image, user)
-
+    email = session['user_email']
+    # getting the email function from crud
+    user = crud.get_user_by_email(email)
+    # updating user image from crud
+    crud.update_img_url(image_url, user)
     db.session.add(user)
     db.session.commit()
 
@@ -207,6 +215,21 @@ def upload_picture():
 
 #     return render_template("search.html")
 
+
+#---------------------Delete Events------------------------#
+# @app.route("/delete_event/<event_id>", methods=["POST"])
+# def delete(event_id):
+
+#     user = session.get("user_id")
+#     if user is None:
+#         flash("Must logged in to delete an event", "error")
+#     else:
+#         event = Event.query.filter(Event.event_id == event_id).first()
+#         db.session.delete(event)
+#         db.session.commit()
+#         flash("Event has been deleted successfully", "success")
+
+#     return redirect("/host_event")
 
 #---------------------Log Out-------------------------------
 @app.route("/logout")
