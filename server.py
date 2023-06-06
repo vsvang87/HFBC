@@ -148,6 +148,41 @@ def host_event():
 
     return redirect("/host_event")
 
+#---------------------------Update Event-----------------------------#
+@app.route("/update_event/<int:event_id>", methods=["GET", "POST"])
+def update_event(event_id):
+
+    event_update = Event.query.filter(Event.event_id == event_id).first()
+
+    if request.method == "POST":
+        event_update.start_date = request.form.get("start_date")
+        event_update.end_date = request.form.get("end_date")
+        event_update.description = request.form.get("description")
+        try:
+            db.session.commit()
+            flash("Update event successful", "success")
+            return redirect("/host_event")
+        except:
+            return "Error, unable to update"
+        
+    else:
+        return render_template("update_event.html", event_update=event_update)
+
+#---------------------Delete Events------------------------#
+@app.route("/delete_event/<event_id>", methods=["POST"])
+def delete(event_id):
+
+    user = session.get("user_id")
+    if user is None:
+        flash("You must logged in to delete a post", "error")
+    else:
+        event = Event.query.filter(Event.event_id == event_id).first()
+        db.session.delete(event)
+        db.session.commit()
+        flash("Event has been deleted", "success")
+
+    
+    return redirect("/host_event")
 #-------------------Give---------------------------#
 @app.route("/give")
 def give():
@@ -182,50 +217,47 @@ def all_members():
     return render_template("all_members.html", all_members=all_members, user=user)
 
 
-#--------------------Search--------------------------#
-@app.route("/update_event", methods=["POST"])
-def update_events():
+#-------------------------Update Member----------------------------#
+@app.route("/update_member/<int:member_id>", methods=["GET", "POST"])
+def update_member(member_id):
 
-    host_event_id = request.form.get("host_event_id")
-    start_date = request.form.get("start_date")
-    end_date = request.form.get("end_date")
-    description = request.form.get("description")
+    member_update = Member.query.filter(Member.member_id == member_id).first()
 
-    user = session["user_id"]
-    event = crud.get_event(host_event_id)
-
-    
-    return redirect("/host_event")
-
-
-# @app.route("/update_event/<event_id>", methods=["POST"])
-# def update_event(event_id):
-
-#     event = Event.query.filter(Event.event_id == event_id).first()
-#     user = session.get("user_id")
-#     if user is None:
-#         flash("You must logged in to update an event", "error")
-#     else:
-#         start_date = request.form.
-
-
-#---------------------Delete Events------------------------#
-@app.route("/delete_meetup/<event_id>", methods=["POST"])
-def delete(event_id):
-
-    user = session.get("user_id")
-    if user is None:
-        flash("You must logged in to delete a post", "error")
+    if request.method == "POST":
+        member_update.first_name = request.form.get("first_name")
+        member_update.last_name = request.form.get("last_name")
+        member_update.address = request.form.get("address")
+        member_update.city = request.form.get("city")
+        member_update.state = request.form.get("state")
+        member_update.zipcode = request.form.get("zipcode")
+        member_update.phone = request.form.get("phone")
+        member_update.email = request.form.get("email")
+        member_update.house_hold = request.form.get("house_hold")
+        try:
+            db.session.commit()
+            return redirect("/all_members")
+        except:
+            return "Error, unable to update"
+        
     else:
-        event = Event.query.filter(Event.event_id == event_id).first()
-        db.session.delete(event)
+        return render_template("update_members.html", member_update=member_update)
+
+
+#-------------------------Delete Member----------------------------#
+@app.route("/delete_member/<int:member_id>")
+def delete_member(member_id):
+
+    member_delete = Member.query.filter(Member.member_id == member_id).first()
+
+    try:
+        db.session.delete(member_delete)
         db.session.commit()
-        flash("Event has been deleted", "success")
-
+        flash("Member deleted successfully", "success")
+        return redirect("/all_members")
+    except:
+        return "Error, could not delete member"
     
-    return redirect("/host_event")
-
-
+   
 #---------------------Log Out-------------------------------
 @app.route("/logout")
 def logout():
@@ -234,8 +266,6 @@ def logout():
     flash("Log out successful", "success")
 
     return redirect("/login")
-
-
 
 #--------------------------------------------------------------#
 if __name__ == '__main__':

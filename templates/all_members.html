@@ -26,6 +26,8 @@
 <table>
   <tr>
     <th>First Name</th>
+
+
     <th>Last Name</th>
     <th>Address</th>
     <th>City</th>
@@ -35,27 +37,32 @@
     <th>Email</th>
     <th>House Hold</th>
   </tr>
+  {% if all_members %}
+    {% for member in all_members %}
   <tr>
-    {% if all_members %}
-      {% for member in all_members %}
     <td>{{ member.first_name}}</td>
     <td>{{ member.last_name }}</td>
-    <td>{{ member.address }}</td>
-    <td>{{ member.city }}</td>
-    <td>{{ member.state }}</td>
-    <td>{{ member.zipcode }}</td>
-    <td>{{ member.phone_number }}</td>
-    <td>{{ member.email }}</td>
-    <td>{{ member.house_hold }}</td>
-      {% endfor %}
-    {% endif %}
+     <td>{{ member.address }}</td>
+     <td>{{ member.city }}</td>
+     <td>{{ member.state }}</td>
+      <td>{{ member.zipcode }}</td>
+      <td>{{ member.phone_number }}</td>
+     <td>{{ member.email }}</td>
+      <td>{{ member.house_hold }}</td>
+
+      <td><a href="/delete_member/{{ member.member_id }}" class="delete-btn">Delete</a>
+      </td>
+      <td><a href="/update_member/{{ member.member_id }}" class="update-btn">Update</a>
+      </td>
   </tr>
-</table>
+  
+    {% endfor %}
     
+  {% endif %}
+</table>
+
   </div>
 </div>
-
-   
 
 {% endblock %}
 {% block footer %}
