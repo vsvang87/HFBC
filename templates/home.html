@@ -2,27 +2,21 @@
 {% block title %}Home{% endblock %}
 {% block head %}
 <link rel="stylesheet" href="../static/css/base.css"/>
+<link rel="stylesheet" href="../static/css/home.css"/>
 {% endblock %}
 
 {% block body %}
 <nav>
-    <div class="navbar-container">
-      <div class="center">
+    <div class="center">
+      <div class="navbar-container">
         <a href="/home">HFBC</a>
+
         <ul>
           <li><a href="/host_event">Host Event</a></li>
            <li><a href="/all_members">All Members</a></li>
           <li><a href="/logout">Log Out</a></li>
         </ul>
-        <div class="search-bar">
-
-          <form action="/search" method="POST">
-            
-            <input type="text" name="search" placeholder="Search"/>
-            <input type="submit" value="search"/>
-          </form>
-
-        </div>
+      
       </div>
     </div>
   </nav>

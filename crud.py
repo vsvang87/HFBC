@@ -55,11 +55,11 @@ def get_event(event_id):
     return Event.query.filter(Event.event_id == event_id).all()
 
 #----------------------Update Image From Cloudinary----------#
-def update_img_url(image_url, user):
+# def update_img_url(image_url, user):
 
-    user.image_url = image_url
+#     user.image_url = image_url
 
-    return image_url
+#     return image_url
 
 
 if __name__ == '__main__':

@@ -1,0 +1,24 @@
+
+.h-container {
+  background: orange;
+}
+.display-event {
+  background: yellow;
+}
+
+.modal-section {
+  position: relative;
+  margin: auto auto;
+  width: 30%;
+  background: green;
+}
+
+.modal-content {
+  position: absolute;
+  display: block;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border: 2px solid red;
+}

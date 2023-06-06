@@ -17,9 +17,7 @@ body {
   width: min(90%, 110rem);
   margin-inline: auto;
 }
-nav {
-  /* background: var(--clr-darGray); */
-}
+
 .navbar-container {
 display: flex;
 justify-content: space-between;

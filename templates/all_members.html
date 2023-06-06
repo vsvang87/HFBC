@@ -5,50 +5,53 @@
 {% endblock %}
 {% block body %}
 <nav>
-    <div class="navbar-container">
-      <div class="center">
+    <div class="center">
+      <div class="navbar-container">
         <a href="/home">HFBC</a>
         <ul>
+          <li><a href="/home">Main Page</a>
+          </li>
           <li><a href="/host_event">Host Event</a></li>
            <li><a href="/all_members">All Members</a></li>
           <li><a href="/logout">Log Out</a></li>
         </ul>
-        <div class="search-bar">
-
-          <form action="/search" method="POST">
-            
-            <input type="text" name="search" placeholder="Search"/>
-            <input type="submit" value="search"/>
-          </form>
-
-        </div>
+       
       </div>
     </div>
   </nav>
 
 <div class="m-container">
   <div class="center">
-
-      <div class="cloudinary-div">
-          <img src="{{ user.image_url }}" alt=" "/>
-      <form action="/post-form-data" method="post" enctype="multipart/form-data" class="cloudinary-form">
-        <input type="file" name="my-file" />
-        <button class="upload-button">Submit</button>
-      </form>
-        </div>
-
-    <h1>All Members</h1>
+<h1>All Members</h1>
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zipcode</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>House Hold</th>
+  </tr>
+  <tr>
     {% if all_members %}
-      <h4>Member</h4>
       {% for member in all_members %}
-          <p>{{ member.first_name}} {{ member.last_name }}</p>
-          <p>{{ member.address }} </p>
-          <p>{{ member.city }}, {{ member.state }} {{ member.zipcode }}</p>
-          <p>{{ member.phone_number }}</p>
-          <p>{{ member.email }}</p>
-          <p>Number of Household: {{ member.house_hold }}</p>
+    <td>{{ member.first_name}}</td>
+    <td>{{ member.last_name }}</td>
+    <td>{{ member.address }}</td>
+    <td>{{ member.city }}</td>
+    <td>{{ member.state }}</td>
+    <td>{{ member.zipcode }}</td>
+    <td>{{ member.phone_number }}</td>
+    <td>{{ member.email }}</td>
+    <td>{{ member.house_hold }}</td>
       {% endfor %}
     {% endif %}
+  </tr>
+</table>
+    
   </div>
 </div>
 

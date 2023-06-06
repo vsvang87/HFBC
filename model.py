@@ -35,7 +35,7 @@ class Member(db.Model):
     zipcode = db.Column(db.Integer, nullable=True)
     phone_number = db.Column(db.String(20), nullable=True)
     house_hold = db.Column(db.Integer, nullable=True)
-    image_url = db.Column(db.String, nullable=True)
+    # image_url = db.Column(db.String, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
 
     user = db.relationship("User", back_populates="member")

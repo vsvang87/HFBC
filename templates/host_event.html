@@ -1,27 +1,23 @@
 {% extends "base.html" %}
 {% block title %}Host Events{% endblock %}
 {% block head %}
+
 <link rel="stylesheet" href="../static/css/base.css"/>
+<link rel="stylesheet" href="../static/css/host_event.css"/>
 {% endblock %}
 {% block body %}
 <nav>
-    <div class="navbar-container">
-      <div class="center">
+    <div class="center">
+      <div class="navbar-container" >
         <a href="/home">HFBC</a>
         <ul>
+          <li><a href="/home">Main Page</a>
+          </li>
           <li><a href="/host_event">Host Event</a></li>
            <li><a href="/all_members">All Members</a></li>
           <li><a href="/logout">Log Out</a></li>
         </ul>
-        <div class="search-bar">
-
-          <form action="/search" method="POST">
-            
-            <input type="text" name="search" placeholder="Search"/>
-            <input type="submit" value="search"/>
-          </form>
-
-        </div>
+      
       </div>
     </div>
   </nav>
@@ -71,6 +67,18 @@
       {% for event in events %}
         <p>Start: {{ event.start_date }} - End: {{ event.end_date }}</p>
         <p>{{ event.description }}</p>
+
+        <form action="/delete_meetup/{{ event.event_id }}" method="POST">
+              
+          <div class="delete-btn-div">
+            <input type="submit" class="delete-btn" value="Delete"/> 
+          </div>
+      </form>
+     
+
+      <div class="update-btn-div">
+          <button class="update-btn" id="id{{event.meet_up_id}}">Update</button>
+      </div>
       {% endfor %}
 
       {% else %}
@@ -80,8 +88,37 @@
     </div>
   </div>
 </section>
+
+<section class="modal-section">
+  <div class="modal-container">
+
+    <div class="modal-content">
+
+      <form action="/update_event" method="POST">
+        <input type="hidden" id="host_event_id" name="host_event_id">
+        <div class="input-group">
+          <label for="start_date">Start Date</label>
+          <input type="datetime-local" name="start_date"/>
+        </div>
+        <div class="input-group">
+          <label for="end_date">End Date</label>
+          <input type="datetime-local" name="end_date"/>
+        </div>
+        <div class="input-group">
+          <textarea cols="10" rows="10" placeholder="Description"></textarea>
+        </div>
+        <div class="input-group">
+          <input type="submit" value="Update" class="update_btn"/>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+</section>
    
 
+<script src="../static/js/host_event.js"></script>
 {% endblock %}
 {% block footer %}
 

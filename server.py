@@ -2,13 +2,6 @@ from flask import Flask, jsonify, render_template, redirect, session,request,fla
 from model import db, User, Member, Event, connect_to_db
 import crud
 
-import cloudinary.uploader
-import os
-
-CLOUDINARY_KEY = os.environ['CLOUDINARY_KEY']
-CLOUDINARY_SECRET = os.environ['CLOUDINARY_SECRET']
-CLOUD_NAME = "dha9labk1"
-
 app = Flask(__name__)
 app.secret_key = 'SECRETS'
 
@@ -72,6 +65,8 @@ def create_new_users():
         return redirect("/new_user")
     else:
         user = crud.create_user(first_name, last_name, email, password)
+        session['user_email'] = user.email
+        session['user_id'] = user.user_id
         db.session.add(user)
         db.session.commit()
         flash("Welcome, you have create new account successful")
@@ -84,11 +79,10 @@ def user_login_home():
     email = session['user_email']
     user = crud.get_user_by_email(email)
 
-    
     user_id = session["user_id"]
-    # events = crud.get_events(user_id)
-
-    return render_template("home.html")
+    member = crud.get_user_by_id(user_id)
+    
+    return render_template("home.html", user=user, member=member)
 
 #-------------------------Add Church Member-------------------#
 @app.route("/home", methods=["POST"])
@@ -123,6 +117,11 @@ def create_member():
 @app.route("/host_event")
 def event():
 
+    # email = session['user_email']
+    # user = crud.get_user_by_email(email)
+
+    # user_id = session["user_id"]
+    # member = crud.get_user_by_id(user_id)
 
     events = Event.query.all()
 
@@ -183,53 +182,49 @@ def all_members():
     return render_template("all_members.html", all_members=all_members, user=user)
 
 
-@app.route("/post-form-data", methods=["POST"])
-def upload_picture():
-
-    my_file = request.files['my-file']
-    result = cloudinary.uploader.upload(my_file, api_key = CLOUDINARY_KEY, api_secret = CLOUDINARY_SECRET, cloud_name = CLOUD_NAME)
-
-
-    image_url = result['secure_url']
-    #getting user session
-    email = session['user_email']
-    # getting the email function from crud
-    user = crud.get_user_by_email(email)
-    # updating user image from crud
-    crud.update_img_url(image_url, user)
-    db.session.add(user)
-    db.session.commit()
-
-    return redirect("/all_members")
-
 #--------------------Search--------------------------#
-# @app.route("/search/<query>", methods=["POST"])
-# def search(query):
+@app.route("/update_event", methods=["POST"])
+def update_events():
 
-#     search = request.form.get("search")
-#     cur.execute(f"")
-#     search_query = []
+    host_event_id = request.form.get("host_event_id")
+    start_date = request.form.get("start_date")
+    end_date = request.form.get("end_date")
+    description = request.form.get("description")
 
-#     for i in range(10):
-#         search_query.append()
+    user = session["user_id"]
+    event = crud.get_event(host_event_id)
 
-#     return render_template("search.html")
+    
+    return redirect("/host_event")
+
+
+# @app.route("/update_event/<event_id>", methods=["POST"])
+# def update_event(event_id):
+
+#     event = Event.query.filter(Event.event_id == event_id).first()
+#     user = session.get("user_id")
+#     if user is None:
+#         flash("You must logged in to update an event", "error")
+#     else:
+#         start_date = request.form.
 
 
 #---------------------Delete Events------------------------#
-# @app.route("/delete_event/<event_id>", methods=["POST"])
-# def delete(event_id):
+@app.route("/delete_meetup/<event_id>", methods=["POST"])
+def delete(event_id):
 
-#     user = session.get("user_id")
-#     if user is None:
-#         flash("Must logged in to delete an event", "error")
-#     else:
-#         event = Event.query.filter(Event.event_id == event_id).first()
-#         db.session.delete(event)
-#         db.session.commit()
-#         flash("Event has been deleted successfully", "success")
+    user = session.get("user_id")
+    if user is None:
+        flash("You must logged in to delete a post", "error")
+    else:
+        event = Event.query.filter(Event.event_id == event_id).first()
+        db.session.delete(event)
+        db.session.commit()
+        flash("Event has been deleted", "success")
 
-#     return redirect("/host_event")
+    
+    return redirect("/host_event")
+
 
 #---------------------Log Out-------------------------------
 @app.route("/logout")
