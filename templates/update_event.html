@@ -12,18 +12,27 @@
 
     <form action="/update_event/{{ event_update.event_id }}" method="POST">
 
-      <label for="startdate">Start Date</label>
+      <div class="update-group">
+        <label for="title">Title</label>
+        <input type="text" name="title" value="{{ event_update.title }}">
+      </div>
+
+        <div class="update-group">
+          <label for="startdate">Start Date</label>
       <input type="datetime-local" name="start_date" value="{{ event_update.start_date }}">
-
-      <label for="enddate">End Date</label>
+        </div>
+        <div class="update-group">
+          <label for="enddate">End Date</label>
       <input type="datetime-local" name="end_date" value="{{ event_update.end_date }}">
-
-      <textarea name="description" cols="30" rows="10" value="event_update.description"></textarea>
-
-      <input type="submit" value="submit">
-
-    </form>
-    
+        </div>
+        <div class="update-group">
+          <textarea name="description" cols="30" rows="10" value="event_update.description"></textarea>
+        </div>
+      <div class="update-group">
+        <input type="submit" value="Update">
+        <a href="/host_event" class="cancel-btn">Cancel</a>
+      </div>
+    </form> 
   </div>
 </div>
   

@@ -19,6 +19,7 @@ body {
   width: min(90%, 110rem);
   margin-inline: auto;
 }
+
 nav {
   background: var(--clr-darGray);
   position: sticky;
@@ -70,18 +71,7 @@ ul li .logout-btn:hover {
   background: transparent;
 }
 
-
-/*------------------------Section 1----------------*/
-.section-1 {
-  position: relative;
-}
-.sect1-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 80vh;
-
-}
+/*-----------------Side Bar Nav-------------------*/
 .navigation {
   display: flex;
   justify-content: flex-start;
@@ -89,9 +79,11 @@ ul li .logout-btn:hover {
   flex-direction: column;
   position: absolute;
   background: var(--clr-darkRed);
-  height: 100vh;
-  width: 15%;
+  height: 100%;
+  min-width: 15%;
+
 }
+
 .side-nav {
   display: flex;
   justify-content: space-between;
@@ -133,66 +125,21 @@ ul li .logout-btn:hover {
 .side-logo {
   text-align: center;
 }
-/*-----------------------Form----------------------*/
-form {
-  border: 1px solid lightgray;
-  border-radius: 10px;
-  box-shadow: 5px 10px 25px 7px rgba(0, 0, 0, 0.2);
-  width: 800px;
-  margin-left: 8rem;
-  padding: 2rem;
+
+/*---------------Section 1--------------------*/
+.sect-1 {
+  min-height: 90vh;
 }
-form h1 {
-  text-align: center;
-  padding-bottom: 2rem;
-}
-form .user-detail {
+.sect1-container {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 100%;
-}
-.form-group1 {
-  width: 50%;
- display: flex;
- justify-content: flex-start;
- align-items: center;
- flex-direction: column;
-}
-form .user-detail .input-group {
-  width: calc(100% / 2 - 20px);
-  margin: .5rem 0;
-  display: flex;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  width: 90%;
+  margin-left: 7rem;
+  min-height: 30vh;
 }
-form .user-detail .input-group input {
-  outline: none;
-  padding: 0.7rem 0.3rem;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  width: 100%;
-}
-form .button-group {
-  margin: 2rem 0 1rem 0;
+th, td {
+  border-bottom: 1px solid lightgray;
+  padding: 0.5rem;
   text-align: center;
-}
-form .button-group .submit-btn {
-padding: .7rem;
-width: 95%;
-cursor: pointer;
- border: 1px solid var(--clr-orange);
- border-radius: 5px;
- background: var(--clr-darkRed);
- font-size: 1.2rem;
- color: var(--clr-textWhite);
- transition: .15s ease-in-out;
-}
-form .button-group .submit-btn:hover {
-  background: transparent;
-  color: var(--clr-darkRed);
-}
-form .note-msg{
-text-align: center;
 }

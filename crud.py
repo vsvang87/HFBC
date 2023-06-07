@@ -14,8 +14,8 @@ def create_member(first_name, last_name, email, address, city, state, zipcode, p
     return member
 
 #--------------------Create Events--------------------------#
-def create_event(start_date, end_date, description, user_id):
-    event = Event(start_date=start_date, end_date=end_date, description=description, user_id=user_id)
+def create_event(title, start_date, end_date, description, user_id):
+    event = Event(title=title, start_date=start_date, end_date=end_date, description=description, user_id=user_id)
 
     return event
 

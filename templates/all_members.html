@@ -1,31 +1,44 @@
 {% extends "base.html" %}
 {% block title %}All Members{% endblock %}
 {% block head %}
-<link rel="stylesheet" href="../static/css/base.css"/>
+<link rel="stylesheet" href="../static/css/all_members.css"/>
 {% endblock %}
 {% block body %}
 <nav>
     <div class="center">
       <div class="navbar-container">
-        <a href="/home">HFBC</a>
+        <a href="/home" class="logo">HFBC</a>
         <ul>
-          <li><a href="/host_event">EVENT</a></li>
-           <li><a href="/all_members">MEMBERS</a></li>
-          <li><a href="/logout">LOG OUT</a></li>
+          <li><a href="/logout" class="logout-btn">LOG OUT</a></li>
         </ul>
        
       </div>
     </div>
   </nav>
 
-<div class="m-container">
+<section class="sect-1">
+  <div class="navigation">   
+      <div class="side-nav">
+       <div class="side-links">
+          <a href="/host_event">Host Event</a>
+         <a href="/all_members">Members</a>
+         <a href="/home">Add Members</a>
+       </div>
+        <div class="side-logo">
+          <p>Hmong First Baptist Church</p>
+        </div>
+      </div>
+    </div>
+
+
   <div class="center">
-<h1>All Members</h1>
+   
+  <div class="sect1-container">
+     <h1>All Members</h1>
 <table>
+  
   <tr>
     <th>First Name</th>
-
-
     <th>Last Name</th>
     <th>Address</th>
     <th>City</th>
@@ -52,15 +65,14 @@
       </td>
       <td><a href="/update_member/{{ member.member_id }}" class="update-btn">Update</a>
       </td>
-  </tr>
-  
+    </tr>
     {% endfor %}
-    
   {% endif %}
-</table>
-
+  </table>
   </div>
-</div>
+  </div>
+</section>
+
 
 {% endblock %}
 {% block footer %}

@@ -128,10 +128,10 @@
        <h1>UPCOMING EVENTS</h1> 
           {% if events %}
           {% for event in events %}
-
-              <p>Start Date:{{ event.start_date }}</p>
-              <p>End Date: {{ event.end_date }}</p>
-              <p>Event: {{ event.description }}</p>
+              <h3>{{ event.title }}</h3>
+              <p>Start:{{ event.start_date }}</p>
+              <p>End: {{ event.end_date }}</p>
+              <p>{{ event.description }}</p>
 
           {% endfor %}
           {% endif %}

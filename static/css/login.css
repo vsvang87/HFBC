@@ -67,7 +67,6 @@ form .input-group .login-btn {
 }
 form .new-user-btn {
   color: var(--clr-darGray);
-  font-size: .8rem;
 }
 
 #new-user-container {

@@ -76,12 +76,64 @@ ul li .logout-btn:hover {
 }
 .sect1-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 80vh;
-
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 90vh;
+  gap: 2rem;
+  
 }
-
+.event-form {
+ width: 60%;
+ display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.event-form h1 {
+  margin: 1rem 0 2rem 0;
+}
+.event-col {
+  margin-top: 5rem;
+}
+.event-content {
+  width: 40%;
+}
+.event-content h2 {
+  margin-bottom: 1rem;
+}
+.event-content .note-msg {
+  margin-bottom: 0.5rem;
+}
+.event-content .event-inner {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+.event-content .event-inner  p, h3 {
+  padding-bottom: 0.5rem;
+}
+.delete-update-form {
+  display: flex;
+  gap: 1rem;
+  margin-top: .3rem;
+}
+.delete-update-form .update-btn {
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+  color: var(--clr-darGray);
+  text-decoration: none;
+  border: 1px solid var(--clr-orange);
+  border-radius: 5px;
+}
+.delete-update-form .delete {
+  background: transparent;
+  color: var(--clr-orange);
+}
+.delete-update-form .update {
+  background: var(--clr-orange);
+  color: var(--clr-textWhite);
+}
+/*----------------------------Side Bar Nav---------------------*/
 .navigation {
   display: flex;
   justify-content: flex-start;
@@ -89,15 +141,8 @@ ul li .logout-btn:hover {
   flex-direction: column;
   position: absolute;
   background: var(--clr-darkRed);
-  height: 100vh;
-  width: 15%;
-
-}
-.sect1-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 80vh;
+  height: 100%;
+  min-width: 15%;
 
 }
 
@@ -128,6 +173,7 @@ ul li .logout-btn:hover {
   border-bottom: 1px solid transparent;
  text-decoration: none;
  transition: 0.15s ease-in-out;
+ font-size: 1.2rem;
 }
 .side-nav a:hover {
   color: var(--clr-orange);
@@ -140,4 +186,54 @@ ul li .logout-btn:hover {
 }
 .side-logo {
   text-align: center;
+}
+/*----------------------Form------------------------*/
+.host-form {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 450px;
+}
+.host-form .input-group {
+  display: flex;
+  justify-content: center;
+  align-items:flex-start;
+  flex-direction: column;
+  margin: 0 0 1rem 0;
+}
+.host-form .input-group input, textarea {
+  padding: 0.7rem 0.3rem;
+  width: 100%;
+  outline: none;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  resize: none;
+  font-family: 'Montserrat', sans-serif;
+}
+.host-form .input-group .submit-btn {
+  border: 1px solid var(--clr-darkRed);
+  background: var(--clr-darkRed);
+  color: var(--clr-textWhite);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.15s ease-in-out;
+}
+.host-form .input-group .submit-btn:hover {
+  background: transparent;
+  color: var(--clr-darkRed);
+}
+
+/*-----------------------Section 2--------------------*/
+.sect-2 {
+  min-height: 10vh;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sect2-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+
 }

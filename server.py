@@ -118,24 +118,26 @@ def create_member():
 def event():
 
     events = Event.query.all()
-
-    return render_template("host_event.html", events=events)
+    
+    return render_template("host_event.html", events=events, )
 
 
 @app.route("/host_event", methods=["POST"])
 def host_event():
 
+    title = request.form.get("title")
     start_date = request.form.get("start_datetime")
     end_date = request.form.get("end_datetime")
     description = request.form.get("description")
 
+    user_email = session['user_email']
     user_id = session['user_id']
 
-    if not user_id:
+    if not user_email:
         flash("Have to logged in to host an event")
         return redirect("/host_event")
     else:
-        event = crud.create_event(start_date, end_date, description, user_id)
+        event = crud.create_event(title, start_date, end_date, description, user_id)
         db.session.add(event)
         db.session.commit()
         flash("Event has been created successfully")
@@ -149,6 +151,7 @@ def update_event(event_id):
     event_update = Event.query.filter(Event.event_id == event_id).first()
 
     if request.method == "POST":
+        event_update.title = request.form.get("title")
         event_update.start_date = request.form.get("start_date")
         event_update.end_date = request.form.get("end_date")
         event_update.description = request.form.get("description")
@@ -165,9 +168,9 @@ def update_event(event_id):
 #---------------------Delete Events------------------------#
 @app.route("/delete_event/<event_id>", methods=["POST"])
 def delete(event_id):
-
-    user = session.get("user_id")
-    if user is None:
+    
+    user_email = session['user_email']
+    if user_email is None:
         flash("You must logged in to delete a post", "error")
     else:
         event = Event.query.filter(Event.event_id == event_id).first()

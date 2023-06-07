@@ -50,6 +50,7 @@ class Event(db.Model):
     __tablename__ = "events"
 
     event_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    title = db.Column(db.String(50), nullable=True)
     start_date = db.Column(db.DateTime, nullable=True)
     end_date = db.Column(db.DateTime, nullable=True)
     description = db.Column(db.String(500), nullable=True)

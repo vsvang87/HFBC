@@ -16,17 +16,13 @@
     </div>
   </nav>
 
-<div class="center">
-  <div class="sect1-container">
-
-    <div class="navigation">
-        
+ <section class="sect-1">
+<div class="navigation">   
       <div class="side-nav">
        <div class="side-links">
-        
-        <div class="side-links"></div>
-          <a href="/host_event">Event</a>
+          <a href="/host_event">Host Event</a>
          <a href="/all_members">Members</a>
+         <a href="/home">Add Members</a>
        </div>
         <div class="side-logo">
           <p>Hmong First Baptist Church</p>
@@ -34,10 +30,16 @@
       </div>
     </div>
 
+<div class="center">
+  <div class="sect1-container">
 
-    <h1>Host Event Page</h1>
-
-    <form action="/host_event" method="POST">
+    <div class="event-form event-col">
+      <form action="/host_event" method="POST" class="host-form">
+       <h1>Host Event Page</h1>
+       <div class="input-group">
+        <label for="title">Title:</label>
+        <input type="text" name="title"/>
+       </div>
       <div class="input-group">
         <label for="startdate">Start Date:</label>
         <input type="datetime-local" name="start_datetime"/>
@@ -53,18 +55,16 @@
         <textarea cols="30" rows="10" name="description"></textarea>
       </div>
       <div class="input-group">
-        <input type="submit" value="Submit"/>
+        <input type="submit" value="Submit" class="submit-btn"/>
       </div>
+      </form>
+    </div>
 
-    </form>
-  </div>
-</div>
+     <div class="event-content event-col">
+          <h2>All events</h2>
 
-<section class="display-event">
-  <div class="d-container">
-    <div class="center">
-
-       {% with messages = get_flashed_messages(with_categories=true)%}
+         <div class="note-msg">
+          {% with messages = get_flashed_messages(with_categories=true)%}
           {% if messages %}
           {% for category, message in messages %}
           <div class="flash-message-div">
@@ -73,33 +73,35 @@
           {% endfor %}
           {% endif %}
         {% endwith %}
+         </div>
 
-      <h2>All events</h2>
-
-      {% if events %}
-        {% for event in events %}
-        <p>Start: {{ event.start_date }} - End: {{ event.end_date }}</p>
+        {% if events %}
+          {% for event in events %}
+        <div class="event-inner">
+        <h3>{{ event.title }}</h3>
+        <p>Start: {{ event.start_date }}</p>
+        <p>End: {{ event.end_date }}</p>
         <p>{{ event.description }}</p>
-
-        <form action="/delete_event/{{ event.event_id }}" method="POST">
-          <div class="delete-btn-div">
-            <input type="submit" class="delete-btn" value="Delete"/> 
-          </div>
+          <form action="/delete_event/{{ event.event_id }}" method="POST" class="delete-update-form">
+          
+          <input type="submit" class="update-btn delete" value="Delete"/> 
+          
+          <a href="/update_event/{{ event.event_id }}" class="update-btn update">Update</a> 
       </form>
-      <a href="/update_event/{{ event.event_id }}" class="update-button">Update</a>
+
+        </div>
         
         {% endfor %}
-      {% else %}
-        <p>There are no events at the moment.</p>   
-      {% endif %}
-      
+       {% else %}
+        <p>There are no events at the moment.</p>  
+      {% endif %}  
 
     </div>
+
   </div>
-</section>
+  </div>
+</section> 
 
-
-<script src="../static/js/host_event.js"></script>
 {% endblock %}
 {% block footer %}
 
