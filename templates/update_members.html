@@ -28,6 +28,9 @@
       <label for="state">State</label>
       <input type="text" name="state" value="{{ member_update.state }}">
 
+      <label for="zipcode">Zipcode</label>
+      <input type="text" name="zipcode" value="{{ member_update.zipcode }}"/>
+
       <label for="phone">Phone</label>
       <input type="phone" name="phone" value="{{ member_update.last_name }}">
 
@@ -36,11 +39,11 @@
 
       <label for="household">House Hold</label>
       <input type="number" name="house_hold" value="{{ member_update.house_hold }}">
-
-      <input type="submit" value="submit">
-
+      <input type="submit" value="Update">
     </form>
-
+      <div class="cancel-btn-div">
+        <a href="/all_members" class="cancel-btn">Cancel</a>
+      </div>
     </div>
   </div>
 

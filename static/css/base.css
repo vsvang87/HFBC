@@ -2,10 +2,11 @@
   font-family: 'Montserrat', sans-serif;
 }
 :root {
-  --clr-turquios: rgb(0, 177, 168);
+  --clr-orange: rgb(209, 153, 0);
   --clr-textWhite: #fff;
   --clr-darGray: #393e46;
   --clr-lightGray: #e6e6e6;
+  --clr-darkRed: rgb(182, 84, 84);
 }
 
 body {
@@ -17,7 +18,12 @@ body {
   width: min(90%, 110rem);
   margin-inline: auto;
 }
-
+nav {
+  background: var(--clr-darGray);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
 .navbar-container {
 display: flex;
 justify-content: space-between;
@@ -25,13 +31,19 @@ align-items: center;
 }
 .logo {
   text-decoration: none;
-  color: var(--clr-turquios);
+  color: var(--clr-textWhite);
+ font-size: 1.5rem;
+ transition: .15s ease-in-out;
+}
+.logo:hover {
+  color: var(--clr-orange);
 }
   
 ul {
-  display: flex;
+display: flex;
 justify-content: space-between;
 align-items: center;
+margin: 0;
 }
 ul li {
   list-style-type: none;
@@ -40,5 +52,19 @@ ul li {
 }
 ul li a {
   text-decoration: none;
-  color: var(--clr-turquios);
+  color: var(--clr-textWhite);
+  transition: 0.15s ease-in-out;
+}
+ul li a:hover {
+   color: var(--clr-orange);
+}
+
+ul li .login {
+  border: 1px solid var(--clr-orange);
+  background: var(--clr-orange);
+  padding: .5rem 1rem;
+  border-radius: 50px 50px;
+}
+ul li .login:hover {
+  background: transparent;
 }
