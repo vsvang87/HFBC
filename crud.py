@@ -19,6 +19,10 @@ def create_event(start_date, end_date, description, user_id):
 
     return event
 
+
+def get_user_by_firstname(first_name):
+
+    return User.query.filter(User.first_name == first_name).first()
 #-------------------Get Member_Id-------------------#
 def get_member(member_id):
 

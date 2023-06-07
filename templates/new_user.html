@@ -3,6 +3,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="../static/css/base.css"/>
+<link rel="stylesheet" href="../static/css/login.css"/>
 {% endblock %}
 {% block body %}
 <nav>
@@ -19,10 +20,11 @@
     </div>
   </nav>
 
-  <div class="n-container">
-    <div class="center">
-       <h1>New User</h1>
+  <div class="center">
+    <div class="login-container" id="new-user-container">
+      
   <form action="/new_user" method="POST">
+     <h1>New User</h1>
     <div class="input-group">
       <label for="first_name">First Name:</label>
       <input type="text" name="first_name" required/>
@@ -40,10 +42,10 @@
       <input type="password" name="password" required/>
     </div>
     <div class="input-group">
-      <button type="submit">Create User</button>
+      <button type="submit" class="login-btn">Create User</button>
     </div>
+    <a href="/login" class="new-user-btn">Log In</a>
   </form>
-          <a href="/login">Log In</a>
     </div>
   </div>
 

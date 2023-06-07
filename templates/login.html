@@ -2,6 +2,7 @@
 {% block title %}Login{% endblock %}
 {% block head %}
 <link rel="stylesheet" href="../static/css/base.css"/>
+<link rel="stylesheet" href="../static/css/login.css"/>
 {% endblock %}
 {% block body %}
 <nav>
@@ -18,11 +19,10 @@
     </div>
   </nav>
 
-<div class="login-container">
-  <div class="center">
-     <h1>login</h1>
-
-     {% with messages = get_flashed_messages(with_categories=true)%}
+<div class="center">
+  <div class="login-container">
+      <div class="note-msg">
+        {% with messages = get_flashed_messages(with_categories=true)%}
       {% if messages %}
       {% for category, message in messages %}
       <div class="flash-message-div">
@@ -31,8 +31,10 @@
       {% endfor %}
       {% endif %}
       {% endwith %}
+      </div>
 
   <form action="/login" method="POST">
+     <h1>LOG IN</h1>
     <div class="input-group">
       <label for="email">Email:</label>
       <input type="email" name="email" id="email" required/>
@@ -42,11 +44,12 @@
       <input type="password" name="password" id="password" required/>
     </div>
     <div class="input-group">
-      <button type="submit">Log In</button>
+      <button type="submit" class="login-btn">Log In</button>
     </div>
+    <a href="/new_user" class="new-user-btn">Create New User</a>
   </form>
 
-  <a href="/new_user">Create New User</a>
+  
   </div>
 </div>
 

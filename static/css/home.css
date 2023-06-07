@@ -1,6 +1,200 @@
-
-body {
+* {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+:root {
+   --clr-orange: rgb(209, 153, 0);
+  --clr-textWhite: #eeeeee;
+  --clr-darGray: #393e46;
+  --clr-lightGray: #e6e6e6;
+  --clr-darkRed: rgb(182, 84, 84);
+}
+body {
+  scroll-behavior: smooth;
 }
 
+.center {
+  width: min(90%, 110rem);
+  margin-inline: auto;
+}
+nav {
+  background: var(--clr-darGray);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.navbar-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.logo {
+  text-decoration: none;
+  color: var(--clr-textWhite);
+ font-size: 1.5rem;
+ transition: .15s ease-in-out;
+}
+.logo:hover {
+  color: var(--clr-orange);
+}
+  
+ul {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: 0;
+}
+ul li {
+  list-style-type: none;
+  padding: 2rem 0;
+  padding-left: 2rem;
+}
+ul li a {
+  text-decoration: none;
+  color: var(--clr-textWhite);
+  transition: 0.15s ease-in-out;
+}
+ul li a:hover {
+   color: var(--clr-orange);
+}
+
+ul li .logout-btn {
+  border: 1px solid var(--clr-orange);
+  background: var(--clr-orange);
+  padding: .5rem 1rem;
+  border-radius: 50px 50px;
+}
+ul li .logout-btn:hover {
+  background: transparent;
+}
+
+
+/*------------------------Section 1----------------*/
+.section-1 {
+  position: relative;
+}
+.navigation {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  background: var(--clr-darkRed);
+  height: 100vh;
+  width: 15%;
+ 
+}
+
+.sect1-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+
+}
+
+.side-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 4rem 0 0 0;
+  color: var(--clr-textWhite);
+  width: 100%;
+  height: 100%;
+}
+.side-nav .side-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.side-nav h3 {
+  margin-bottom: 1rem;
+}
+
+.side-nav a {
+  padding: .5rem 0;
+  color: var(--clr-textWhite);
+  border-bottom: 1px solid transparent;
+ text-decoration: none;
+ transition: 0.15s ease-in-out;
+}
+.side-nav a:hover {
+  color: var(--clr-orange);
+  border-bottom: 1px solid var(--clr-orange);
+}
+
+.host {
+  border-bottom: 1px solid var(--clr-textWhite);
+  padding-bottom: 5rem;
+}
+.side-logo {
+  text-align: center;
+}
+/*-----------------------Form----------------------*/
+form {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  box-shadow: 5px 10px 25px 7px rgba(0, 0, 0, 0.2);
+  width: 800px;
+  margin-left: 8rem;
+  padding: 2rem;
+}
+form h1 {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+form .user-detail {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.form-group1 {
+  width: 50%;
+ display: flex;
+ justify-content: flex-start;
+ align-items: center;
+ flex-direction: column;
+}
+form .user-detail .input-group {
+  width: calc(100% / 2 - 20px);
+  margin: .5rem 0;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 90%;
+}
+form .user-detail .input-group input {
+  outline: none;
+  padding: 0.7rem 0.3rem;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  width: 100%;
+}
+form .button-group {
+  margin: 2rem 0 1rem 0;
+  text-align: center;
+}
+form .button-group .submit-btn {
+padding: .7rem;
+width: 95%;
+cursor: pointer;
+ border: 1px solid var(--clr-orange);
+ border-radius: 5px;
+ background: var(--clr-darkRed);
+ font-size: 1.2rem;
+ color: var(--clr-textWhite);
+ transition: .15s ease-in-out;
+}
+form .button-group .submit-btn:hover {
+  background: transparent;
+  color: var(--clr-darkRed);
+}
+form .note-msg{
+text-align: center;
+}

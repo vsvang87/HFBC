@@ -77,12 +77,12 @@ def create_new_users():
 def user_login_home():
 
     email = session['user_email']
-    user = crud.get_user_by_email(email)
+    users = crud.get_user_by_email(email)
 
     user_id = session["user_id"]
-    member = crud.get_user_by_id(user_id)
-    
-    return render_template("home.html", user=user, member=member)
+    members = crud.get_user_by_id(user_id)
+
+    return render_template("home.html", users=users, members=members)
 
 #-------------------------Add Church Member-------------------#
 @app.route("/home", methods=["POST"])
@@ -116,12 +116,6 @@ def create_member():
 #----------------------Host Event-----------------------#
 @app.route("/host_event")
 def event():
-
-    # email = session['user_email']
-    # user = crud.get_user_by_email(email)
-
-    # user_id = session["user_id"]
-    # member = crud.get_user_by_id(user_id)
 
     events = Event.query.all()
 

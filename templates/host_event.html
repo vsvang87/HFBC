@@ -2,28 +2,39 @@
 {% block title %}Host Events{% endblock %}
 {% block head %}
 
-<link rel="stylesheet" href="../static/css/base.css"/>
 <link rel="stylesheet" href="../static/css/host_event.css"/>
 {% endblock %}
 {% block body %}
 <nav>
     <div class="center">
-      <div class="navbar-container" >
-        <a href="/home">HFBC</a>
+      <div class="navbar-container">
+        <a href="/home" class="logo">HFBC</a>
         <ul>
-          <li><a href="/home">Main Page</a>
-          </li>
-          <li><a href="/host_event">Host Event</a></li>
-           <li><a href="/all_members">All Members</a></li>
-          <li><a href="/logout">Log Out</a></li>
+          <li><a href="/logout" class="logout-btn">LOG OUT</a></li>
         </ul>
-      
       </div>
     </div>
   </nav>
 
-<div class="h-container">
-  <div class="center">
+<div class="center">
+  <div class="sect1-container">
+
+    <div class="navigation">
+        
+      <div class="side-nav">
+       <div class="side-links">
+        
+        <div class="side-links"></div>
+          <a href="/host_event">Event</a>
+         <a href="/all_members">Members</a>
+       </div>
+        <div class="side-logo">
+          <p>Hmong First Baptist Church</p>
+        </div>
+      </div>
+    </div>
+
+
     <h1>Host Event Page</h1>
 
     <form action="/host_event" method="POST">

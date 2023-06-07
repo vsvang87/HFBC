@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+:root {
+   --clr-orange: rgb(209, 153, 0);
+  --clr-textWhite: #eeeeee;
+  --clr-darGray: #393e46;
+  --clr-lightGray: #e6e6e6;
+  --clr-darkRed: rgb(182, 84, 84);
+}
+body {
+  scroll-behavior: smooth;
+}
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 60vh;
+  
+}
+.note-msg {
+  margin-bottom: 1rem;
+}
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  min-width: 400px;
+  min-height: 30vh;
+  padding: 2rem;
+}
+form h1 {
+  margin: 0 0 2rem 0;
+}
+form .input-group {
+ display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 0.5rem 0;
+  width: 100%;
+}
+form .input-group input {
+  outline: none;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: .7rem 0.3rem;
+  width: 100%;
+}
+form .input-group .login-btn {
+  padding: 0.7rem 0;
+  background: var(--clr-darkRed);
+  color: var(--clr-textWhite);
+  border: 1px solid var(--clr-darkRed);
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+form .new-user-btn {
+  color: var(--clr-darGray);
+  font-size: .8rem;
+}
+
+#new-user-container {
+  min-height: 80vh;
+}
