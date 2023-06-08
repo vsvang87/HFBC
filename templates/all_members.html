@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}All Members{% endblock %}
 {% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="../static/css/all_members.css"/>
 {% endblock %}
 {% block body %}
@@ -9,6 +10,8 @@
       <div class="navbar-container">
         <a href="/home" class="logo">HFBC</a>
         <ul>
+          <input type="search" value="Search..."/>
+          <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
           <li><a href="/logout" class="logout-btn">LOG OUT</a></li>
         </ul>
        
@@ -35,9 +38,9 @@
    
   <div class="sect1-container">
      <h1>All Members</h1>
-<table>
-  
-  <tr>
+
+<table class="content-table">
+  <thead>
     <th>First Name</th>
     <th>Last Name</th>
     <th>Address</th>
@@ -47,7 +50,15 @@
     <th>Phone</th>
     <th>Email</th>
     <th>House Hold</th>
+    <th>Delete</th>
+    <th>Update</th>
   </tr>
+
+  </thead>
+
+  <tbody>
+    <tr>
+    
   {% if all_members %}
     {% for member in all_members %}
   <tr>
@@ -68,6 +79,9 @@
     </tr>
     {% endfor %}
   {% endif %}
+
+  </tbody>
+ 
   </table>
   </div>
   </div>

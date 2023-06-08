@@ -72,21 +72,22 @@ ul li .logout-btn:hover {
 
 /*-----------------Side Nav---------------------*/
 .section-1 {
+  min-height: 100vh;
   position: relative;
 }
 .sect1-container {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  min-height: 90vh;
+  min-height: 100vh;
   gap: 2rem;
-  
 }
 .event-form {
- width: 60%;
+ width: 55%;
  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+justify-content: flex-end;
+align-items: center;
+
 }
 .event-form h1 {
   margin: 1rem 0 2rem 0;
@@ -95,7 +96,8 @@ ul li .logout-btn:hover {
   margin-top: 5rem;
 }
 .event-content {
-  width: 40%;
+  width: 45%;
+  font-size: 0.8rem;
 }
 .event-content h2 {
   margin-bottom: 1rem;
@@ -141,9 +143,8 @@ ul li .logout-btn:hover {
   flex-direction: column;
   position: absolute;
   background: var(--clr-darkRed);
-  height: 100%;
-  min-width: 15%;
-
+  min-height: 100vh;
+  min-width: 18%;
 }
 
 .side-nav {
@@ -154,8 +155,8 @@ ul li .logout-btn:hover {
   padding: 1rem;
   margin: 4rem 0 0 0;
   color: var(--clr-textWhite);
-  width: 100%;
-  height: 100%;
+  min-width: 100%;
+  min-height: 100vh;
 }
 .side-nav .side-links {
   display: flex;

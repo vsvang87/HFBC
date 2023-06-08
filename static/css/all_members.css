@@ -136,10 +136,26 @@ ul li .logout-btn:hover {
   align-items: center;
   flex-direction: column;
   margin-left: 7rem;
-  min-height: 30vh;
+  min-height: 48vh;
 }
-th, td {
-  border-bottom: 1px solid lightgray;
-  padding: 0.5rem;
+
+/*------------------------Table_--------------------*/
+.content-table {
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: .8rem;
+  min-width: 600px;
+  border: 1px solid lightgray;
   text-align: center;
+}
+.content-table thead {
+  background: var(--clr-orange);
+  color: var(--clr-textWhite);
+  font-weight: 600;
+}
+.content-table th, td {
+  padding: 0.7rem;
+}
+.content-table tbody, tr {
+  border-bottom: 1px solid lightgray;
 }
