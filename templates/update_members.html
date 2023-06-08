@@ -4,48 +4,60 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../static/css/update_members.css"/>
   <title>Update Members</title>
 </head>
 <body>
   
-  <div class="update-member-container">
-    <div class="center">
+  <div class="center">
+    <div class="update-member-container">
 
       <form action="/update_member/{{ member_update.member_id }}" method="POST">
-
-      <label for="fristname">First Name</label>
+        <h1>Update Member</h1>
+        <div class="update-content"><label for="fristname">First Name</label>
       <input type="text" name="first_name" value="{{ member_update.first_name }}">
-
-      <label for="lastname">Last Name</label>
+    </div>
+        <div class="update-content">
+           <label for="lastname">Last Name</label>
       <input type="text" name="last_name" value="{{ member_update.last_name }}">
-
-      <label for="address">Address</label>
+        </div>
+        <div class="update-content">
+          <label for="address">Address</label>
       <input type="text" name="address" value="{{ member_update.address }}">
-      
-      <label for="city">City</label>
+        </div>
+        <div class="update-content">
+          <label for="city">City</label>
       <input type="text" name="city" value="{{ member_update.city }}">
-      
-      <label for="state">State</label>
+        </div>
+        <div class="update-content">
+          <label for="state">State</label>
       <input type="text" name="state" value="{{ member_update.state }}">
-
-      <label for="zipcode">Zipcode</label>
+        </div>
+        <div class="update-content">
+          <label for="zipcode">Zipcode</label>
       <input type="text" name="zipcode" value="{{ member_update.zipcode }}"/>
-
-      <label for="phone">Phone</label>
+        </div>
+        <div class="update-content">
+          <label for="phone">Phone</label>
       <input type="phone" name="phone" value="{{ member_update.last_name }}">
-
-      <label for="email">Email</label>
+        </div>
+        <div class="update-content">
+          <label for="email">Email</label>
       <input type="email" name="email" value="{{ member_update.email }}">
-
-      <label for="household">House Hold</label>
+        </div>
+        <div class="update-content">
+          <label for="household">House Hold</label>
       <input type="number" name="house_hold" value="{{ member_update.house_hold }}">
-      <input type="submit" value="Update">
-    </form>
-      <div class="cancel-btn-div">
-        <a href="/all_members" class="cancel-btn">Cancel</a>
-      </div>
+        </div>
+        <div class="button-div">
+          <input type="submit" value="Update" class="update btn">
+         
+          <a href="/all_members" class="cancel btn">Cancel</a>
+         
+        </div> 
+    </form>  
     </div>
   </div>
-
 </body>
 </html>

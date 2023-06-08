@@ -62,19 +62,6 @@
 
      <div class="event-content event-col">
           <h2>All events</h2>
-
-         <div class="note-msg">
-          {% with messages = get_flashed_messages(with_categories=true)%}
-          {% if messages %}
-          {% for category, message in messages %}
-          <div class="flash-message-div">
-            <p class="{{ category }}">{{ message }}</p>
-          </div>
-          {% endfor %}
-          {% endif %}
-        {% endwith %}
-         </div>
-
         {% if events %}
           {% for event in events %}
         <div class="event-inner">

@@ -151,11 +151,17 @@ ul li .logout-btn:hover {
 .content-table thead {
   background: var(--clr-orange);
   color: var(--clr-textWhite);
-  font-weight: 600;
 }
 .content-table th, td {
   padding: 0.7rem;
 }
 .content-table tbody, tr {
   border-bottom: 1px solid lightgray;
+}
+.content-table td a {
+  text-decoration: none;
+  background: var(--clr-darkRed);
+  padding: 0.3rem;
+  color: var(--clr-textWhite);
+  border-radius: 0.3rem;
 }

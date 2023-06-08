@@ -144,7 +144,7 @@ align-items: center;
   position: absolute;
   background: var(--clr-darkRed);
   min-height: 100vh;
-  min-width: 18%;
+  min-width: 15%;
 }
 
 .side-nav {

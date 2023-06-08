@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+:root {
+   --clr-orange: rgb(209, 153, 0);
+  --clr-textWhite: #eeeeee;
+  --clr-darGray: #393e46;
+  --clr-lightGray: #e6e6e6;
+  --clr-darkRed: rgb(182, 84, 84);
+}
+body {
+  scroll-behavior: smooth;
+}
+
+.center {
+  width: min(90%, 110rem);
+  margin-inline: auto;
+}
+
+.update-member-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+form {
+  border: 1px solid lightgray;
+  box-shadow: 5px 10px 25px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 2rem;
+  min-width: 500px;
+}
+form h1 {
+  margin-bottom: 1rem;
+}
+form .update-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+form .update-content input {
+  width: 100%;
+  outline: none;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 0.7rem 0.3rem;
+}
+form .button-div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+form .button-div .btn {
+  padding: .7rem;
+  border: 1px solid var(--clr-darkRed);
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+form .button-div .update {
+  background: var(--clr-darkRed);
+  color: var(--clr-textWhite);
+}
+
+form .button-div .cancel {
+  background: transparent;
+  color: var(--clr-darkRed);
+}
