@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Serve{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="../static/css/base.css"/>
+{% endblock %}
+
+{% block body %}
+
+<div class="center">
+  <div class="serve-container">
+    <form action="/serve_form" method="POST">
+      <div class="serve-content">
+        <label for="firstname">First Name</label>
+        <input type="text" name="first_name"/>
+      </div>
+      <div class="serve-content">
+        <label for="lastname">Last Name</label>
+        <input type="text" name="last_name"/>
+      </div>
+      <div class="serve-content">
+        <label for="email">Email</label>
+        <input type="email" name="email"/>
+      </div>
+      <div class="serve-content">
+        <label for="message">Message</label>
+        <textarea cols="30" rows="10" name="message"></textarea>
+      </div>
+      <div class="serve-content">
+        <input type="submit" value="Send"/>
+        <a href="/" class="cancel-btn">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

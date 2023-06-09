@@ -1,12 +1,21 @@
 from flask import Flask, jsonify, render_template, redirect, session,request,flash
 from model import db, User, Member, Event, connect_to_db
+from flask_mail import Mail, Message
+
 import crud
+
 
 app = Flask(__name__)
 app.secret_key = 'SECRETS'
-
-app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51NExkJJ4c4ZamGfp6EQd7l68VNd040Z9p9uo86X9O1WLdBmmpWoWVz0AVQZxwMYrEzPOiaGQaWDsXsl7CdmwvxjW00LHwa6iEZ'
-app.config['STRIPE_SECRET_KEY'] = 'sk_test_51NExkJJ4c4ZamGfpZ9jw4LLvtqckTvIZ1Rw8aYUIa5YwiAadabChXubwhHgsQXgoum1mxTQ9JQ0JNdubZcTo2W9d00GJAgYPpX'
+app.config["MAIL_SERVER"] = 'smtp.gmail.com'
+app.config["MAIL_PORT"] = 465
+app.config["MAIL_USERNAME"] = ' hfbc.milw@gmail.com'
+app.config["MAIL_PASSWORD"] = None
+app.config["MAIL_USE_TLS"] = False
+app.config["MAIL_USE_SSL"] = True
+mail = Mail(app)
+# app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51NExkJJ4c4ZamGfp6EQd7l68VNd040Z9p9uo86X9O1WLdBmmpWoWVz0AVQZxwMYrEzPOiaGQaWDsXsl7CdmwvxjW00LHwa6iEZ'
+# app.config['STRIPE_SECRET_KEY'] = 'sk_test_51NExkJJ4c4ZamGfpZ9jw4LLvtqckTvIZ1Rw8aYUIa5YwiAadabChXubwhHgsQXgoum1mxTQ9JQ0JNdubZcTo2W9d00GJAgYPpX'
 
 
 #----------------------------Home Page------------------------------------#
@@ -240,7 +249,7 @@ def update_member(member_id):
         return render_template("update_members.html", member_update=member_update)
 
 
-#-------------------------Delete Member----------------------------#
+#--------------------Delete Member----------------------------#
 @app.route("/delete_member/<int:member_id>")
 def delete_member(member_id):
 
@@ -254,6 +263,27 @@ def delete_member(member_id):
     except:
         return "Error, could not delete member"
     
+#----------------------Serve Form-------------------------#
+@app.route("/serve_form")
+def serve():
+
+    return render_template("serve_form.html")
+
+@app.route("/serve_form", methods=["POST"])
+def serve_form():
+
+    first_name = request.args.get("first_name")
+    last_name = request.args.get("last_name")
+    email = request.args.get("email")
+    message = request.args.get("message")
+
+    if request.method == "POST":
+        msg = Message(sender=email, recipients=['hfbc.milw@gmail.com'])
+        msg.body = message
+        mail.send(msg)
+        return "Sent"
+
+    return redirect("serve_form.html")
    
 #---------------------Log Out-------------------------------
 @app.route("/logout")

@@ -41,24 +41,22 @@
           <div class="content1 g-col">
             <i class="fa-solid fa-church"></i>
             <h2>SERVICE</h2>
-            <p>Sunday</p>
-            <p>10:30 AM - 12:00 PM</p>
-
+            <p>Sunday: 10:30 AM - 12:00 PM</p>
             <p>WEDNESDAY NIGHT PRAYER</p>
             <p>7 PM - 8 PM</p>
+            
           </div>
 
           <div class="content2 g-col">
             <i class="fa-solid fa-book-bible"></i>
             <h2>BIBLE STUDY</h2>
-            <p>Men Bible Study</p>
+            <p>Men, Women, Youth</p>
             <p>Sunday: 9:30 AM - 10:25 AM</p>
-            <p>Women Bible Study</p>
-            <p>Sunday: 9:30 Am - 10:25 AM</p>
-            <p>Youth Bible Study</p>
-            <p>Sunday: 9:30 AM - 10:25 AM</p>
+
+            <a href="https://us02web.zoom.us/j/88033768815?pwd=ZDBndWM1Z3Rid2MwUjlveDhMNGFWQT09" target="_blank"><i class="fa-solid fa-video"></i></a>
+            <p>Audio & Video</p>
+            <p>Meeting ID: 86814207799</p>
           </div>
-         
         </div>
       </div>
     </div>
@@ -73,10 +71,10 @@
           <div class="image col-1"></div>
 
           <div class="info col-1">
-            <h1>GROW IN FAITH</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere aperiam saepe cumque ad dolores quia nam necessitatibus quasi in minus impedit fugit, mollitia placeat, ipsum aspernatur quae. Sed, possimus inventore!</p>
-            <div class="prayer-btn-div">
-              <a href="#" class="prayer-button">Prayer Request</a>
+            <h1>IN NEED OF PRAYER?</h1>
+            <p>If you are in need of prayer, please contact us. We have people ready to pray with you and for you.</p>
+            <div class="serve-btn-div">
+              <a href="#" class="serve-button">Prayer Request</a>
             </div>
           </div>
 
@@ -85,9 +83,9 @@
         <div class="sect3-content-2">
           <div class="serve col-2">
             <h1>VOLUNTEER & SERVE</h1>
-            <p>If you want to serve Hmong First Baptist Church, please fill out a form and a staff with get in contact with you.</p>
+            <p>If you want to serve at Hmong First Baptist Church, please fill out a form and a staff with get in contact with you.</p>
             <div class="serve-btn-div">
-              <a href="#" class="serve-button">Serve</a>
+              <a href="/serve_form" class="serve-button">Serve</a>
             </div>
           </div>
           <div class="img col-2">
@@ -109,11 +107,11 @@
             <h3>Men</h3>
           </div>
           <div class="women m-col">
-            <img src="../static/images/women.jpg" alt=""/>
+            <img src="../static/images/women1.jpg" alt=""/>
             <h3>Women</h3>
           </div>
           <div class="youth m-col">
-            <img src="../static/images/youth.jpg" alt=""/>
+            <img src="../static/images/youth1.jpg" alt=""/>
             <h3>Youth</h3>
           </div>
         </div>
@@ -124,17 +122,20 @@
 
 <section class="sect-5">
   <div class="center">
+     <h1>UPCOMING EVENTS</h1> 
     <div class="sect5-container">
-       <h1>UPCOMING EVENTS</h1> 
-          {% if events %}
+       {% if events %}
           {% for event in events %}
+       <div class="event-content">
+         
               <h3>{{ event.title }}</h3>
               <p>Start:{{ event.start_date }}</p>
               <p>End: {{ event.end_date }}</p>
               <p>{{ event.description }}</p>
-
+        </div> 
           {% endfor %}
           {% endif %}
+       
     </div>
   </div>
 </section>
@@ -147,11 +148,11 @@
       <div class="logo-div">
         <a href="/" class="footer-logo">H F B C</a>
       </div>
-      <div class="address">
+      <div class="address footer-col">
         <p><i class="fa-solid fa-location-dot"></i> 6693 N 99th St</p>
         <p>Milwaukee, WI 53224</p>
       </div>
-      <div class="phone-email">
+      <div class="phone-email footer-col">
         <p><i class="fa-solid fa-phone"></i> 414-358-2610</p>
         <p><i class="fa-solid fa-envelope"></i> hfbc.milw@gmail.com</p>
       </div>
