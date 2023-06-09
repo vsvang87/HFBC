@@ -6,8 +6,8 @@
 :root {
    --clr-orange: rgb(209, 153, 0);
   --clr-textWhite: #eeeeee;
-  --clr-darGray: #393e46;
-  --clr-lightGray: #e6e6e6;
+  --clr-darGray: #2e2e2e;
+  --clr-lightGray: #4b4b4b;
   --clr-darkRed: rgb(182, 84, 84);
 }
 
@@ -120,7 +120,7 @@ body {
   width: 50%;
 }
 .sect3-content-2 .img {
-  background-image: url(../images/churchgroup.jpg);
+  background-image: url(../images/churchcamp1.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -166,7 +166,7 @@ padding-bottom: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 .m-col {
   width: 33%;
@@ -196,14 +196,17 @@ padding-bottom: 2rem;
   width: 25%;
   border: 1px solid lightgray;
   height: 300px;
-  padding: 0.5rem;
-  border-radius: 5px;
+ 
 }
 .sect5-container .event-content h3 {
-  padding-bottom: 0.7rem;
+  padding: 0.8rem 0;
+  text-align: center;
+  background: var(--clr-orange);
+  color: var(--clr-textWhite);
+ 
 }
 .sect5-container .event-content p {
-  padding-bottom: 0.7rem;
+  padding: 0.7rem;
 }
 /*-------------------------Footer---------------*/
 footer {
@@ -232,3 +235,4 @@ footer {
 .footer-container .footer-col p {
   padding-bottom: 0.5rem;
 }
+

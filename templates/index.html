@@ -14,7 +14,6 @@
       <div class="navbar-container">
         <a href="/" class="logo">H F B C</a>
         <ul>
-           <li><a href="/about">ABOUT</a></li>
            <li><a href="/ministries">MINISTRIES</a></li>
           <li><a href="/give">GIVE</a></li>
           <li><a href="/login" class="login">LOG IN</a></li>
@@ -127,10 +126,9 @@
        {% if events %}
           {% for event in events %}
        <div class="event-content">
-         
               <h3>{{ event.title }}</h3>
-              <p>Start:{{ event.start_date }}</p>
-              <p>End: {{ event.end_date }}</p>
+              <p>Start: {{ event.start_date|datetime_format('%m/%d/%y - %I:%M %p') }} </p>
+              <p>End: {{ event.end_date|datetime_format('%m/%d/%y - %I:%M %p') }}</p>
               <p>{{ event.description }}</p>
         </div> 
           {% endfor %}

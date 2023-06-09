@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block title %}Login{% endblock %}
 {% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="../static/css/base.css"/>
+<link rel="stylesheet" href="../static/css/ministries.css"/>
 {% endblock %}
 {% block body %}
 <nav>
@@ -9,24 +11,105 @@
       <div class="navbar-container">
         <a href="/" class="logo">H F B C</a>
         <ul>
-          <li><a href="/">Home</a></li>
-           <li><a href="/about">About</a></li>
-           <li><a href="/ministries">Ministries</a></li>
-          <li><a href="/give">Give</a></li>
-          <li><a href="/login">Log in</a></li>
+          <li><a href="/">HOME</a></li>
+          <li><a href="/give">GIVE</a></li>
+          <li><a href="/login" class="login">LOG IN</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-<div class="m-container">
+<section class="sect-1">
   <div class="center">
-    <h1>Ministries Page</h1>
+    <div class="sect-1-container">
+      <div class="sect1-content">
+        <h1>GET INVOLVED AT HMONG FIRST BAPTIST CHURCH</h1>
+        <p>Hmong First Baptist has many ministries available for you to be involved in. From helping in the children's ministry to greeting newcomers as they arrive at the front doors. Serving at Hmong First Baptist Church is a great way to help make this church your home and deepen your relationship with Christ.</p>
+      </div>
+
+    </div>
   </div>
-</div>
+</section>
 
+<section sect-2>
+  <div class="center">   
+     <h1>OUR MINISTRIES</h1>
+    <div class="sect2-container">
+      <div class="sect2-content"> 
+        <div class="children ministry-col">
+          <img src="../static/images/children.JPG" alt="">
+          <h2>Children</h2>
+        </div>
+        <div class="youth ministry-col">
+          <img src="../static/images/youth2.jpg" alt="">
+          <h2>Youth</h2>
+        </div>
+        <div class="men ministry-col">
+          <img src="../static/images/churchcamp.jpg" alt="">
+          <h2>         
+            Men
+          </h2>
+        </div>
+        <div class="women ministry-col">
+          <img src="../static/images/women.jpg" alt="">
+          <h2>          
+            Women
+          </h2>
+        </div>
+        <div class="ministry-col">
+          <img src="../static/images/songbook.jpg" alt="">
+          <h2>
+            Music
+          </h2>
+        </div>
+        <div class="ministry-col">
+          <img src="../static/images/tee.JPG" alt="">
+          <h2>Outreach</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section class="sect-3">
+  <div class="center">    
+    <div class="sect3-container">  
+      <div class="sect3-content">
+        <div class="serve-info serve-col">
+          <h1>VOLUNTEER & SERVE</h1>
+          <p>We are passinonate about showing you who Jesus is. Whether it is in our won neighborhood or across the globe, we can tangibly express God's love for humanity through our outreach projects and mission trips. Join us as we extend our mission beyond our walls and share the love Jesus in our local and global community.</p>
+         <div class="serve-btn-div">
+              <a href="/serve_form" class="serve-button">Serve</a>
+            </div>
+        </div>
+        <div class="serve-img serve-col">
+          <img src="../static/images/bible2.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sect-4">
+  <div class="center">
+    <div class="sect4-container">
+      <h2>Hmong First Baptist Church</h2>
+        <p>6693 N 99th St</p>
+        <p>Milwaukee, WI 53224</p>
+        <p>414-358-2610 | hfbc.milw@gmail.com</p>
+        <a href="https://www.facebook.com/HmongFirstBaptistChurch/"><i class="fa-brands fa-facebook"></i></a>
+    </div>
+  </div>
+</section>
 {% endblock %}
 {% block footer %}
-
+<footer>
+  <div class="center">
+    <div class="footer-container">
+      
+       <p>Copyright 2023 Hmong First Baptist Chruch. All Rights Reserved</p>
+     
+    </div>
+  </div>
+</footer>
 {% endblock %}

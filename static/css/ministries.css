@@ -1,0 +1,159 @@
+:root {
+   --clr-orange: rgb(209, 153, 0);
+  --clr-textWhite: #eeeeee;
+  --clr-darGray: #2e2e2e;
+  --clr-lightGray: #4b4b4b;
+  --clr-darkRed: rgb(182, 84, 84);
+}
+
+.sect-1 {
+  min-height: 50vh;
+  position: relative;
+  padding: 1rem 0;
+  color: var(--clr-textWhite);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sect-1::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url(../images/bible2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+  filter: brightness(80%);
+}
+.sect-1-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sect1-content {
+  width: 60%;
+  letter-spacing: 0.05rem;
+}
+.sect1-content h1 {
+  font-size: 2rem;
+  padding: 0.3rem 0;
+  line-height: 2.2rem;
+}
+.sect1-content p {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
+
+/*-----------------Section 2-----------------------*/
+.sect-2 {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.center h1 {
+  text-align: center;
+  margin-top: 5rem;
+}
+.sect2-container {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sect2-container h1{
+  text-align: center;
+}
+.sect2-container .sect2-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2rem;
+  text-align: center;
+} 
+.sect2-content .ministry-col {
+  width: 100%;
+}
+
+.sect2-content .ministry-col img{
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+/*----------------------Section 3-----------------*/
+.sect-3 {
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: var(--clr-darkRed);
+}
+.sect3-container {
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sect3-container .sect3-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.sect3-content .serve-col {
+  width: 48%;
+  
+}
+.sect3-content .serve-info {
+  padding-right: 5rem;
+  letter-spacing: 0.05rem;
+  line-height: 1.5rem;
+  color: var(--clr-textWhite);
+}
+.sect3-content .serve-img img {
+width: 100%;
+}
+.serve-btn-div .serve-button {
+  padding: 0.7rem 1rem;
+  background: var(--clr-orange);
+  text-decoration: none;
+  color: var(--clr-textWhite);
+  border: 1px solid var(--clr-orange);
+  border-radius: 50px 50px;
+  transition: 0.15s ease-in-out;
+}
+.serve-btn-div .serve-button:hover {
+  background: transparent;
+  color: var(--clr-orange);
+}
+/*-------------Section 4----------------------*/
+.sect-4 {
+  min-height: 20vh;
+  background: var(--clr-lightGray);
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sect4-container {
+  color: var(--clr-textWhite);
+  text-align: center;
+}
+.sect4-container i {
+  color: var(--clr-textWhite);
+  font-size: 1.5rem;
+}
+/*------------Footer--------------------*/
+footer {
+  min-height: 15vh;
+  background: var(--clr-darGray);
+  padding: 1rem 0;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .footer-container {
+  text-align: center;
+  color: var(--clr-textWhite);
+  
+}

@@ -16,12 +16,13 @@
     </div>
   </nav>
 
+
  <section class="sect-1">
 <div class="navigation">   
       <div class="side-nav">
        <div class="side-links">
           <a href="/host_event">Host Event</a>
-         <a href="/all_members">Members</a>
+         <a href="/all_members">View Members</a>
          <a href="/home">Add Members</a>
        </div>
         <div class="side-logo">
@@ -40,6 +41,8 @@
         <label for="title">Title:</label>
         <input type="text" name="title"/>
        </div>
+        
+        
       <div class="input-group">
         <label for="startdate">Start Date:</label>
         <input type="datetime-local" name="start_datetime"/>
@@ -66,8 +69,8 @@
           {% for event in events %}
         <div class="event-inner">
         <h3>{{ event.title }}</h3>
-        <p>Start: {{ event.start_date }}</p>
-        <p>End: {{ event.end_date }}</p>
+          <p>Start: {{ event.start_date|datetime_format('%m/%d/%y - %I:%M %p')  }}</p>
+        <p>End: {{ event.end_date|datetime_format('%m/%d/%y - %I:%M %p') }}</p>
         <p>{{ event.description }}</p>
           <form action="/delete_event/{{ event.event_id }}" method="POST" class="delete-update-form">
           
