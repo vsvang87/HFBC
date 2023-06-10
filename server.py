@@ -3,7 +3,7 @@ from model import db, User, Member, Event, connect_to_db
 from flask_mail import Mail, Message
 
 import crud
-
+# import stripe
 
 app = Flask(__name__)
 app.secret_key = 'SECRETS'
@@ -18,7 +18,7 @@ app.secret_key = 'SECRETS'
 
 # app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51NExkJJ4c4ZamGfp6EQd7l68VNd040Z9p9uo86X9O1WLdBmmpWoWVz0AVQZxwMYrEzPOiaGQaWDsXsl7CdmwvxjW00LHwa6iEZ'
 # app.config['STRIPE_SECRET_KEY'] = 'sk_test_51NExkJJ4c4ZamGfpZ9jw4LLvtqckTvIZ1Rw8aYUIa5YwiAadabChXubwhHgsQXgoum1mxTQ9JQ0JNdubZcTo2W9d00GJAgYPpX'
-
+# stripe.api_key = app.config['STRIPE_SECRET_KEY']
 
 #----------------------------Home Page------------------------------------#
 @app.route('/')
@@ -27,7 +27,6 @@ def index():
     events = Event.query.all()
 
     return render_template('index.html', events=events)
-
 
 #----------------------------Login-----------------------------------------#
 @app.route('/login')
@@ -194,8 +193,8 @@ def delete(event_id):
 #-------------------Give---------------------------#
 @app.route("/give")
 def give():
-
-    return render_template("give.html")
+    
+    return render_template("give.html" )
 
 @app.route("/thanks")
 def thanks():
@@ -271,21 +270,21 @@ def serve():
 
     return render_template("serve_form.html")
 
-@app.route("/serve_form", methods=["POST"])
-def serve_form():
+# @app.route("/serve_form", methods=["POST"])
+# def serve_form():
 
-    first_name = request.args.get("first_name")
-    last_name = request.args.get("last_name")
-    email = request.args.get("email")
-    message = request.args.get("message")
+#     first_name = request.args.get("first_name")
+#     last_name = request.args.get("last_name")
+#     email = request.args.get("email")
+#     message = request.args.get("message")
 
-    if request.method == "POST":
-        msg = Message(sender=email, recipients=['hfbc.milw@gmail.com'])
-        msg.body = message
-        mail.send(msg)
-        return "Sent"
+#     if request.method == "POST":
+#         msg = Message(sender=email, recipients=['hfbc.milw@gmail.com'])
+#         msg.body = message
+#         mail.send(msg)
+#         return "Sent"
 
-    return redirect("serve_form.html")
+#     return redirect("serve_form.html")
    
 #---------------------Log Out-------------------------------
 @app.route("/logout")

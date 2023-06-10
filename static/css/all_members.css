@@ -146,10 +146,7 @@ ul li .logout-btn:hover {
 
 
 /*------------------------Table_--------------------*/
-.wrapper {
-  width: min(1200px, 100% - 3rem);
-  margin-inline: auto;
-}
+
 .content-table {
   border-collapse: collapse;
   margin: 1.5rem 0;

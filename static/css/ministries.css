@@ -114,7 +114,7 @@
 width: 100%;
 }
 .serve-btn-div .serve-button {
-  padding: 0.7rem 1rem;
+  padding: 0.5rem 1rem;
   background: var(--clr-orange);
   text-decoration: none;
   color: var(--clr-textWhite);
@@ -128,7 +128,7 @@ width: 100%;
 }
 /*-------------Section 4----------------------*/
 .sect-4 {
-  min-height: 20vh;
+  min-height: 25vh;
   background: var(--clr-lightGray);
   padding: 1rem 0;
   display: flex;
@@ -148,7 +148,7 @@ footer {
   min-height: 15vh;
   background: var(--clr-darGray);
   padding: 1rem 0;
-   display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }

@@ -72,7 +72,7 @@ body {
   padding-bottom: 1rem;
 }
 .sect2-container .g-col i {
-  font-size: 2.5rem;
+  font-size: 3rem;
   padding-bottom: 1rem;
   color: var(--clr-darkRed);
 }
@@ -110,7 +110,9 @@ body {
 .info {
   padding-left: 5rem;
 }
-
+.info h1 {
+  padding-bottom: 1.5rem;
+}
 .sect3-content-2 {
   display: flex;
   justify-content: space-between;
@@ -130,6 +132,9 @@ body {
 
 .serve {
   padding-right: 5rem;
+}
+.serve h1 {
+   padding-bottom: 1rem;
 }
 .serve-btn-div {
   margin-top: 1rem;
@@ -195,7 +200,7 @@ padding-bottom: 2rem;
 .sect5-container .event-content {
   width: 25%;
   border: 1px solid lightgray;
-  height: 300px;
+  height: 350px;
  
 }
 .sect5-container .event-content h3 {
@@ -209,30 +214,35 @@ padding-bottom: 2rem;
   padding: 0.7rem;
 }
 /*-------------------------Footer---------------*/
-footer {
-  min-height: 20vh;
-  background: var(--clr-darGray);
+.sect-6 {
+  min-height: 25vh;
+  background: var(--clr-lightGray);
+  padding: 1rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.footer-container {
-   display: flex;
-  justify-content: space-between;
+.sect6-container {
+  color: var(--clr-textWhite);
+  text-align: center;
+}
+.sect6-container p, h2 {
+  padding-bottom: 0.7rem;
+}
+.sect6-container i {
+  color: var(--clr-textWhite);
+  font-size: 1.5rem;
+}
+/*------------Footer--------------------*/
+footer {
+  min-height: 15vh;
+  background: var(--clr-darGray);
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
-.footer-container .address {
+footer .footer-container {
+  text-align: center;
   color: var(--clr-textWhite);
-}
-.footer-container .phone-email {
-  color: var(--clr-textWhite);
-}
-.logo-div .footer-logo {
-  font-size: 1.2rem;
-  color: var(--clr-textWhite);
-  text-decoration: none;
-}
-.footer-container .footer-col p {
-  padding-bottom: 0.5rem;
-}
-
+}  
