@@ -2,18 +2,22 @@ from flask import Flask, jsonify, render_template, redirect, session,request,fla
 from model import db, User, Member, Event, connect_to_db
 from flask_mail import Mail, Message
 
+import smtplib
 import crud
+import os
 # import stripe
+os.environ['EMAIL_PASSWORD'] = '9a4c7dvisay'
+PASSWORD = os.environ['EMAIL_PASSWORD']
 
 app = Flask(__name__)
 app.secret_key = 'SECRETS'
-# app.config["MAIL_SERVER"] = 'smtp.gmail.com'
-# app.config["MAIL_PORT"] = 465
-# app.config["MAIL_USERNAME"] = ' hfbc.milw@gmail.com'
-# app.config["MAIL_PASSWORD"] = None
-# app.config["MAIL_USE_TLS"] = False
-# app.config["MAIL_USE_SSL"] = True
-# mail = Mail(app)
+app.config["MAIL_SERVER"] = 'smtp.gmail.com'
+app.config["MAIL_PORT"] = 465
+app.config["MAIL_USERNAME"] = ' hfbc.milw@gmail.com'
+app.config["MAIL_PASSWORD"] = None
+app.config["MAIL_USE_TLS"] = False
+app.config["MAIL_USE_SSL"] = True
+flask_mail = Mail(app = None)
 
 
 # app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51NExkJJ4c4ZamGfp6EQd7l68VNd040Z9p9uo86X9O1WLdBmmpWoWVz0AVQZxwMYrEzPOiaGQaWDsXsl7CdmwvxjW00LHwa6iEZ'
@@ -53,33 +57,33 @@ def user_login():
         return redirect("/home")
 
 #----------------------------New User Page----------------------------#
-@app.route("/new_user")
-def new_user():
+# @app.route("/new_user")
+# def new_user():
 
-    return render_template("new_user.html")
+#     return render_template("new_user.html")
 
 
 #--------------------------Create New User-----------------------------#
-@app.route("/new_user", methods=["POST"])
-def create_new_users():
+# @app.route("/new_user", methods=["POST"])
+# def create_new_users():
 
-    first_name = request.form.get("first_name")
-    last_name = request.form.get("last_name")
-    email = request.form.get("email")
-    password = request.form.get("password")
+#     first_name = request.form.get("first_name")
+#     last_name = request.form.get("last_name")
+#     email = request.form.get("email")
+#     password = request.form.get("password")
 
-    user = crud.get_user_by_email("email")
+#     user = crud.get_user_by_email("email")
 
-    if user:
-        flash("This account already exists")
-        return redirect("/new_user")
-    else:
-        user = crud.create_user(first_name, last_name, email, password)
-        session['user_email'] = user.email
-        session['user_id'] = user.user_id
-        db.session.add(user)
-        db.session.commit()
-        flash("Welcome, you have create new account successful")
+#     if user:
+#         flash("This account already exists")
+#         return redirect("/new_user")
+#     else:
+#         user = crud.create_user(first_name, last_name, email, password)
+#         session['user_email'] = user.email
+#         session['user_id'] = user.user_id
+#         db.session.add(user)
+#         db.session.commit()
+#         flash("Welcome, you have create new account successful")
         return redirect("/home")
    
 #---------------------------Login Home Page-------------------#
@@ -92,7 +96,9 @@ def user_login_home():
     user_id = session["user_id"]
     members = crud.get_user_by_id(user_id)
 
-    return render_template("home.html", users=users, members=members)
+    all_members = Member.query.all()
+
+    return render_template("home.html", users=users, members=members, all_members=all_members)
 
 #-------------------------Add Church Member-------------------#
 @app.route("/home", methods=["POST"])
@@ -196,16 +202,6 @@ def give():
     
     return render_template("give.html" )
 
-@app.route("/thanks")
-def thanks():
-
-    return redirect("/give")
-
-#---------------------About----------------------------#
-@app.route("/about")
-def about():
-
-    return render_template("about.html")
 
 @app.route("/ministries")
 def ministry():
@@ -213,15 +209,15 @@ def ministry():
     return render_template("ministries.html")
 
 #--------------------Display All Members----------------#
-@app.route("/all_members")
-def all_members():
+# @app.route("/all_members")
+# def all_members():
 
-    email = session['user_email']
-    user = crud.get_user_by_email(email)
+#     email = session['user_email']
+#     user = crud.get_user_by_email(email)
 
-    all_members = Member.query.all()
+#     all_members = Member.query.all()
 
-    return render_template("all_members.html", all_members=all_members, user=user)
+#     return render_template("all_members.html", all_members=all_members, user=user)
 
 
 #-------------------------Update Member----------------------------#
@@ -242,7 +238,7 @@ def update_member(member_id):
         member_update.house_hold = request.form.get("house_hold")
         try:
             db.session.commit()
-            return redirect("/all_members")
+            return redirect("/home")
         except:
             return "Error, unable to update"
         
@@ -260,29 +256,31 @@ def delete_member(member_id):
         db.session.delete(member_delete)
         db.session.commit()
         flash("Member deleted successfully", "success")
-        return redirect("/all_members")
+        return redirect("/home")
     except:
         return "Error, could not delete member"
     
 #----------------------Serve Form-------------------------#
-@app.route("/serve_form")
-def serve():
+# @app.route("/serve_form")
+# def serve():
 
-    return render_template("serve_form.html")
+#     return render_template("serve_form.html")
 
 # @app.route("/serve_form", methods=["POST"])
 # def serve_form():
 
-#     first_name = request.args.get("first_name")
-#     last_name = request.args.get("last_name")
-#     email = request.args.get("email")
-#     message = request.args.get("message")
+#     first_name = request.form.get("first_name")
+#     last_name = request.form.get("last_name")
+#     email = request.form.get("email")
+#     phone = request.form.get("phone")
+#     description = request.form.get("message")
 
-#     if request.method == "POST":
-#         msg = Message(sender=email, recipients=['hfbc.milw@gmail.com'])
-#         msg.body = message
-#         mail.send(msg)
-#         return "Sent"
+#     message = "Testing Testing"
+#     server = smtplib.SMTP("smtp.gmail.com", 587)
+#     server.starttls()
+#     server.login("vsvang@gmail.com", os.environ.get("PASSWORD", "Not Set"))
+#     server.sendmail("vsvang@gmail.com", email, message)
+
 
 #     return redirect("serve_form.html")
    

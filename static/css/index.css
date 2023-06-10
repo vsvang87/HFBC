@@ -139,19 +139,6 @@ body {
 .serve-btn-div {
   margin-top: 1rem;
 }
-.serve-button {
-  text-decoration: none;
-  color: var(--clr-textWhite);
-  background: var(--clr-orange);
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--clr-orange);
-  border-radius: 50px 50px;
-  transition: 0.15s ease-in-out;
-}
-.serve-button:hover {
-  background: transparent;
-  color: var(--clr-orange);
-}
 /*-------------------Section 4-----------------------*/
 .sect-4 {
   min-height: 60vh;
@@ -184,7 +171,7 @@ padding-bottom: 2rem;
 /*---------------------------Section 5------------------*/
 .sect-5 {
   min-height: 50vh;
-  padding: 1rem 0;
+  padding: 2rem 0;
 }
 .sect-5 h1 {
   text-align: center;
@@ -195,10 +182,10 @@ padding-bottom: 2rem;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 1rem;
-  
+  flex-wrap: wrap;
 }
 .sect5-container .event-content {
-  width: 25%;
+  width: 24%;
   border: 1px solid lightgray;
   height: 350px;
  

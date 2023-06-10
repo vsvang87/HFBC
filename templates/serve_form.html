@@ -3,34 +3,64 @@
 
 {% block head %}
 <link rel="stylesheet" href="../static/css/base.css"/>
+<link rel="stylesheet" href="../static/css/serve_form.css"/>
 {% endblock %}
 
 {% block body %}
+<nav>
+    <div class="center">
+      <div class="navbar-container">
+        <a href="/" class="logo">H F B C</a>
+        <ul>
+           <li><a href="/">HOME</a></li>
+           <li><a href="/ministries">MINISTRIES</a></li>
+          <li><a href="https://donate.stripe.com/test_14kcQv7nLfKm7II000">GIVE</a></li>
+          <li><a href="/login" class="login">LOG IN</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 <div class="center">
   <div class="serve-container">
-    <form action="/serve_form" method="POST">
+
+    <div class="serve-inner-container">
+       <div class="serve-msg serve-col">
+      <h1>Serve</h1>
+      <p>Please fill out this form and list the area that you desire to serve. A ministry leader will get in touch with you.</p>
+    </div>
+
+    <div class="serve-form serve-col">
+      
+        <form action="/serve_form" method="POST" > 
       <div class="serve-content">
         <label for="firstname">First Name</label>
-        <input type="text" name="first_name"/>
+        <input type="text" name="first_name" required/>
       </div>
       <div class="serve-content">
         <label for="lastname">Last Name</label>
-        <input type="text" name="last_name"/>
+        <input type="text" name="last_name" required/>
       </div>
       <div class="serve-content">
         <label for="email">Email</label>
-        <input type="email" name="email"/>
+        <input type="email" name="email" />
+      </div>
+      <div class="serve-content">
+        <label for="phone">Phone</label>
+        <input type="phone" name="phone" required/>
       </div>
       <div class="serve-content">
         <label for="message">Message</label>
-        <textarea cols="30" rows="10" name="message"></textarea>
+        <textarea cols="30" rows="10" name="message" required></textarea>
       </div>
-      <div class="serve-content">
-        <input type="submit" value="Send"/>
-        <a href="/" class="cancel-btn">Cancel</a>
+      <div class="button-content">
+        <input type="submit" value="Send" class="submit btn"/>
+        <a href="/" class="cancel btn">Cancel</a>
       </div>
     </form>
+    </div>
+    </div>
+  
   </div>
 </div>
 

@@ -9,7 +9,10 @@
 <nav>
     <div class="center">
       <div class="navbar-container">
-        <a href="/home" class="logo">HFBC</a>
+        <ul class="links">
+          <a href="/host_event" class="link">Host Event</a>
+        </ul>
+       
         <ul>
           <li><a href="/logout" class="logout-btn">LOG OUT</a></li>
         </ul>
@@ -17,26 +20,15 @@
     </div>
   </nav>
 
-  <section class="section-1">
-      <div class="navigation">
-      <div class="side-nav">
-       <div class="side-links">
-        <p class="greeting">Hello, {{ users.first_name }}</p>
-        <div class="side-links"></div>
-          <a href="/host_event">Host Event</a>
-         <a href="/all_members">View Members</a>
-       </div>
-        <div class="side-logo">
-          <p>Hmong First Baptist Church</p>
-        </div>
-      </div>
-    </div>
-
+  <section class="section-1">  
     <div class="center">   
+        <p class="greeting">Hello, {{ users.first_name }}</p>
+
       <div class="sect1-container"> 
          
-        <form action="/home" method="POST">
-          <h1>Add Member</h1>
+        <div class="member-content">
+          <div class="add-member-form add-col">
+           <form action="/home" method="POST">
           <div class="user-detail">
             <div class="form-group1">
                  <div class="input-group">
@@ -114,9 +106,64 @@
           {% endfor %}
           {% endif %}
         {% endwith %}
-
           </div>
         </form>
+        </div>
+        <div class="instruction add-col">
+          <h1>Add Member</h1>
+          <p>You can add members by filling out the form. Member added will be displayed in the table.</p>
+        </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="section-2">
+    <div class="center">
+      <h1>All Members</h1>
+      <div class="sect2-container">
+      <table class="content-table">
+        
+      <thead>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zipcode</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>House Hold</th>
+        <th>Delete</th>
+        <th>Update</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr> 
+      {% if all_members %}
+    {% for member in all_members %}
+    <tr>
+    <td>{{ member.first_name}}</td>
+    <td>{{ member.last_name }}</td>
+     <td>{{ member.address }}</td>
+     <td>{{ member.city }}</td>
+     <td>{{ member.state }}</td>
+      <td>{{ member.zipcode }}</td>
+      <td>{{ member.phone_number }}</td>
+     <td>{{ member.email }}</td>
+      <td>{{ member.house_hold }}</td>
+
+      <td><a href="/delete_member/{{ member.member_id }}" class="delete-btn">Delete</a>
+      </td>
+      <td><a href="/update_member/{{ member.member_id }}" class="update-btn">Update</a>
+      </td>
+      </tr>
+      {% endfor %}
+      {% endif %}
+     </tbody>
+           
+        </div>
       </div>
     </div>
   </section>
