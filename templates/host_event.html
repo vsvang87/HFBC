@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block title %}Host Events{% endblock %}
 {% block head %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alata&family=Anton&family=Courgette&family=Lato:wght@300&family=Lobster&family=Merriweather:ital@1&family=Montserrat:wght@300&family=Nunito:wght@200&family=Open+Sans&family=Pacifico&family=Poppins:ital,wght@1,100&family=Quando&family=Quicksand:wght@400;600&family=Roboto:wght@300&family=Sigmar&family=Ubuntu&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="../static/css/host_event.css"/>
 {% endblock %}
@@ -8,7 +11,9 @@
 <nav>
     <div class="center">
       <div class="navbar-container">
-        <a href="/home" class="logo">HFBC</a>
+        <ul class="links">
+           <a href="/home">ADD MEMBERS</a>
+        </ul> 
         <ul>
           <li><a href="/logout" class="logout-btn">LOG OUT</a></li>
         </ul>
@@ -16,20 +21,7 @@
     </div>
   </nav>
 
-
  <section class="sect-1">
-<div class="navigation">   
-      <div class="side-nav">
-       <div class="side-links">
-          <a href="/host_event">Host Event</a>
-         <a href="/all_members">View Members</a>
-         <a href="/home">Add Members</a>
-       </div>
-        <div class="side-logo">
-          <p>Hmong First Baptist Church</p>
-        </div>
-      </div>
-    </div>
 
 <div class="center">
   <div class="sect1-container">
@@ -39,23 +31,21 @@
        <h1>Host Event</h1>
        <div class="input-group">
         <label for="title">Title:</label>
-        <input type="text" name="title"/>
-       </div>
-        
-        
+        <input type="text" name="title" required/>
+       </div> 
       <div class="input-group">
         <label for="startdate">Start Date:</label>
-        <input type="datetime-local" name="start_datetime"/>
+        <input type="datetime-local" name="start_datetime" required/>
       </div>
       <div class="input-group">
         <label for="enddate">End Date:</label>
-        <input type="datetime-local" name="end_datetime"/>
+        <input type="datetime-local" name="end_datetime" required/>
       </div>
       <div class="input-group">
         <label for="description">
           Description:
         </label>
-        <textarea cols="30" rows="10" name="description"></textarea>
+        <textarea cols="30" rows="10" name="description" required></textarea>
       </div>
       <div class="input-group">
         <input type="submit" value="Submit" class="submit-btn"/>

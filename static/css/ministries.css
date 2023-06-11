@@ -1,8 +1,8 @@
 :root {
    --clr-orange: rgb(209, 153, 0);
   --clr-textWhite: #eeeeee;
-  --clr-darGray: #2e2e2e;
-  --clr-lightGray: #4b4b4b;
+  --clr-darGray: #424242;
+  --clr-lightGray: #686868;
   --clr-darkRed: rgb(182, 84, 84);
 }
 
@@ -67,7 +67,7 @@
 }
 .sect2-container .sect2-content {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-template-rows: repeat(2, 1fr);
   gap: 1rem;
   text-align: center;
@@ -104,7 +104,6 @@
 }
 .sect3-content .serve-col {
   width: 48%;
-  
 }
 .sect3-content .serve-info {
   padding-right: 5rem;
@@ -158,4 +157,18 @@ footer .footer-container {
   text-align: center;
   color: var(--clr-textWhite);
   
+}
+
+
+@media (max-width: 1050px) {
+ .sect3-container .sect3-content {
+  flex-direction: column;
+  align-items: center;
+}
+.sect3-content .serve-col {
+  width: 100%;
+}
+.sect3-content .serve-info {
+  padding-right: 0;
+}
 }

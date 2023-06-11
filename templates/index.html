@@ -2,6 +2,9 @@
 {% block title %}Home{% endblock %}
 
 {% block head %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alata&family=Anton&family=Courgette&family=Lato:wght@300&family=Lobster&family=Merriweather:ital@1&family=Montserrat:wght@300&family=Nunito:wght@200&family=Open+Sans&family=Pacifico&family=Poppins:ital,wght@1,100&family=Quando&family=Quicksand:wght@400;600&family=Roboto:wght@300&family=Sigmar&family=Ubuntu&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="../static/css/base.css"/>
 <link rel="stylesheet" href="../static/css/index.css"/>
@@ -82,7 +85,7 @@
         <div class="sect3-content-2">
           <div class="serve col-2">
             <h1>VOLUNTEER & SERVE</h1>
-            <p>If you want to serve at Hmong First Baptist Church, please fill out a form and a staff with get in contact with you. We values the opportunity to serve the Lord and believes to serve is the responsibility of every Christ-follower. We belive the primary purpose of serving in ministry is to honor God by serving his people with the gifts and talents he has given us.</p>
+            <p>If you want to serve at Hmong First Baptist Church, please email us the desire area and a staff with get in contact with you. We values the opportunity to serve the Lord and believes to serve is the responsibility of every Christ-follower. We believe the primary purpose of serving in ministry is to honor God by serving his people with the gifts and talents he has given us.</p>
             <div class="serve-btn-div">
               <p>hfbc.milw@gmail.com</p>
             </div>
@@ -132,6 +135,7 @@
               <p>{{ event.description }}</p>
         </div> 
           {% endfor %}
+          
           {% endif %}
        
     </div>

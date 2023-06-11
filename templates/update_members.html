@@ -4,18 +4,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alata&family=Anton&family=Courgette&family=Lato:wght@300&family=Lobster&family=Merriweather:ital@1&family=Montserrat:wght@300&family=Nunito:wght@200&family=Open+Sans&family=Pacifico&family=Poppins:ital,wght@1,100&family=Quando&family=Quicksand:wght@400;600&family=Roboto:wght@300&family=Sigmar&family=Ubuntu&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../static/css/update_members.css"/>
   <title>Update Members</title>
 </head>
-<body>
-  
+<body> 
   <div class="center">
-    <div class="update-member-container">
-
+    <div class="update-member-container"> 
       <form action="/update_member/{{ member_update.member_id }}" method="POST">
-        <h1>Update Member</h1>
-        <div class="update-content"><label for="fristname">First Name</label>
+         <h1>Update Member</h1>
+        <div class="user-details">
+            <div class="left-side form-col">        
+           <div class="update-content"><label for="fristname">First Name</label>
       <input type="text" name="first_name" value="{{ member_update.first_name }}">
     </div>
         <div class="update-content">
@@ -34,13 +37,16 @@
           <label for="state">State</label>
       <input type="text" name="state" value="{{ member_update.state }}">
         </div>
-        <div class="update-content">
+        </div>
+
+        <div class="right-side form-col">
+           <div class="update-content">
           <label for="zipcode">Zipcode</label>
       <input type="text" name="zipcode" value="{{ member_update.zipcode }}"/>
         </div>
         <div class="update-content">
           <label for="phone">Phone</label>
-      <input type="phone" name="phone" value="{{ member_update.last_name }}">
+      <input type="phone" name="phone" value="{{ member_update.phone_number }}">
         </div>
         <div class="update-content">
           <label for="email">Email</label>
@@ -50,12 +56,13 @@
           <label for="household">House Hold</label>
       <input type="number" name="house_hold" value="{{ member_update.house_hold }}">
         </div>
-        <div class="button-div">
-          <input type="submit" value="Update" class="update btn">
-         
-          <a href="/home" class="cancel btn">Cancel</a>
-         
-        </div> 
+ 
+        </div>         
+        </div>
+          <div class="button-div">
+          <input type="submit" value="Update" class="update btn">        
+          <a href="/home" class="cancel btn">Cancel</a>      
+        </div>       
     </form>  
     </div>
   </div>

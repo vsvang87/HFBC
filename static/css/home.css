@@ -1,14 +1,14 @@
 * {
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
   padding: 0;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 :root {
-   --clr-orange: rgb(209, 153, 0);
+  --clr-orange: rgb(209, 153, 0);
   --clr-textWhite: #eeeeee;
-  --clr-darGray: #393e46;
-  --clr-lightGray: #e6e6e6;
+  --clr-darGray: #424242;
+  --clr-lightGray: #686868;
   --clr-darkRed: rgb(182, 84, 84);
 }
 body {
@@ -81,16 +81,16 @@ ul li .logout-btn:hover {
 }
 .sect1-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   min-height: 70vh;
  
 }
 .section-1 .greeting {
   font-size: 2rem;
-  font-weight: 600;
-  padding-top: 3rem;
+  padding: 3rem 0;
   text-align: center;
+  font-family: 'Lobster', cursive;
 }
 .member-content {
   display: flex;
@@ -100,12 +100,19 @@ ul li .logout-btn:hover {
 }
 
 .member-content .instruction p, h1{
-  padding-left: 5rem;
   line-height: 1.5rem;
   letter-spacing: 0.05rem;
+  width: 80%;
 }
 .member-content .instruction h1 {
   margin-bottom: 1rem;
+}
+.member-content .instruction i {
+  font-size: 5rem;
+}
+.member-content .img-div {
+  margin-top: 2rem;
+  width: 80%;
 }
 .add-col {
   width: 50%;
@@ -174,41 +181,120 @@ text-align: center;
 }
 /*--------------------Section 2, Table--------------------*/
 .section-2 {
-  min-height: 30vh;
+  min-height: 50vh;
 }
 .section-2 h1 {
   text-align: center;
-  margin-top: 2rem;
+  margin: 2rem 0;
 }
 .sect2-container {
-  min-height: 30vh;
-   display: flex;
+  min-height: 50vh;
+  display: flex;
   justify-content: center;
   align-items: flex-start;
 }
-.content-table {
+/*----------------Table-------------------------*/
+
+table {
+  border: 1px solid #ccc;
   border-collapse: collapse;
-  margin: 1.5rem 0;
-  font-size: 1rem;
-  min-width: 600px;
-  border: 1px solid lightgray;
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5rem;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th, td {
+  padding: 0.5rem;
   text-align: center;
 }
-.content-table thead {
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+table .btn {
+  text-decoration: none;
+  padding: 0.2rem;
+  border: 1px solid var(--clr-darkRed);
+  border-radius: 5px;
+  
+}
+table .delete {
+  color: var(--clr-darkRed);
+}
+table .update {
   background: var(--clr-darkRed);
   color: var(--clr-textWhite);
 }
-.content-table th, td {
-  padding: 0.7rem;
-}
-.content-table tbody, tr {
-  border-bottom: 1px solid lightgray;
-}
-.content-table td a {
-  text-decoration: none;
-  background: var(--clr-orange);
-  padding: 0.3rem;
-  color: var(--clr-textWhite);
-  border-radius: 0.3rem;
-}
 
+@media (max-width: 1500px) {
+  table {
+    border: 0;
+  }
+  table thead {
+    border: none;
+    clip-path: inset(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+   
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 1rem;
+    text-align: right;
+  }
+  
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+@media (max-width: 950px) {
+  .member-content {
+    flex-direction: column;
+  }
+  .member-content .instruction {
+    width: 100%;
+  }
+  .member-content .instruction p, h1{
+    text-align: center;
+  width: 100%;
+  }
+  .add-member-form {
+    width: 100%;
+  }
+  .member-content .img-div {
+    margin-top: 2rem;
+    width: 100%;
+  }
+}

@@ -24,7 +24,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 80vh;
 }
 form {
   border: 1px solid lightgray;
@@ -32,7 +32,21 @@ form {
   border-radius: 10px;
   padding: 2rem;
   min-width: 500px;
+  
 }
+form h1 {
+  margin-bottom: 2rem;
+}
+form .user-details {
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+gap: 1rem;
+}
+form .form-col {
+  width: 50%;
+}
+
 form h1 {
   margin-bottom: 1rem;
 }
@@ -72,4 +86,5 @@ form .button-div .update {
 form .button-div .cancel {
   background: transparent;
   color: var(--clr-darkRed);
+  text-decoration: none;
 }

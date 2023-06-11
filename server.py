@@ -233,7 +233,7 @@ def update_member(member_id):
         member_update.city = request.form.get("city")
         member_update.state = request.form.get("state")
         member_update.zipcode = request.form.get("zipcode")
-        member_update.phone = request.form.get("phone")
+        member_update.phone_number = request.form.get("phone")
         member_update.email = request.form.get("email")
         member_update.house_hold = request.form.get("house_hold")
         try:
