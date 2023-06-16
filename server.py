@@ -5,7 +5,7 @@ import crud
 
 app = Flask(__name__)
 app.secret_key = 'SECRETS'
-
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 #----------------------------Home Page------------------------------------#
 @app.route('/')
