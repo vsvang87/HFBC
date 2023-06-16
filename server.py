@@ -4,10 +4,10 @@ from model import db, User, Member, Event, connect_to_db
 
 # import smtplib
 import crud
-import os
+# import os
 # import stripe
-os.environ['EMAIL_PASSWORD'] = '9a4c7dvisay'
-PASSWORD = os.environ['EMAIL_PASSWORD']
+# os.environ['EMAIL_PASSWORD'] = '9a4c7dvisay'
+# PASSWORD = os.environ['EMAIL_PASSWORD']
 
 app = Flask(__name__)
 app.secret_key = 'SECRETS'
