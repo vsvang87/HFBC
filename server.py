@@ -10,14 +10,14 @@ os.environ['EMAIL_PASSWORD'] = '9a4c7dvisay'
 PASSWORD = os.environ['EMAIL_PASSWORD']
 
 app = Flask(__name__)
-app.secret_key = 'SECRETS'
-app.config["MAIL_SERVER"] = 'smtp.gmail.com'
-app.config["MAIL_PORT"] = 465
-app.config["MAIL_USERNAME"] = ' hfbc.milw@gmail.com'
-app.config["MAIL_PASSWORD"] = None
-app.config["MAIL_USE_TLS"] = False
-app.config["MAIL_USE_SSL"] = True
-flask_mail = Mail(app = None)
+# app.secret_key = 'SECRETS'
+# app.config["MAIL_SERVER"] = 'smtp.gmail.com'
+# app.config["MAIL_PORT"] = 465
+# app.config["MAIL_USERNAME"] = ' hfbc.milw@gmail.com'
+# app.config["MAIL_PASSWORD"] = None
+# app.config["MAIL_USE_TLS"] = False
+# app.config["MAIL_USE_SSL"] = True
+# flask_mail = Mail(app = None)
 
 
 # app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51NExkJJ4c4ZamGfp6EQd7l68VNd040Z9p9uo86X9O1WLdBmmpWoWVz0AVQZxwMYrEzPOiaGQaWDsXsl7CdmwvxjW00LHwa6iEZ'
@@ -84,7 +84,7 @@ def user_login():
 #         db.session.add(user)
 #         db.session.commit()
 #         flash("Welcome, you have create new account successful")
-        return redirect("/home")
+#         return redirect("/home")
    
 #---------------------------Login Home Page-------------------#
 @app.route("/home")
