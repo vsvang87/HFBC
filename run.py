@@ -1,3 +1,3 @@
-from hfbc import create_app
+from hfbc import server
 
-app = create_app()
+app = server()
