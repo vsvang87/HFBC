@@ -7,6 +7,9 @@ app = Flask(__name__)
 app.secret_key = 'SECRETS'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
+db.init_app(app)
+
+
 #----------------------------Home Page------------------------------------#
 @app.route('/')
 def index():
