@@ -2,7 +2,7 @@ from flask import Flask, jsonify, render_template, redirect, session,request,fla
 from model import db, User, Member, Event, connect_to_db
 # from flask_mail import Mail, Message
 
-import smtplib
+# import smtplib
 import crud
 import os
 # import stripe
@@ -10,7 +10,7 @@ os.environ['EMAIL_PASSWORD'] = '9a4c7dvisay'
 PASSWORD = os.environ['EMAIL_PASSWORD']
 
 app = Flask(__name__)
-# app.secret_key = 'SECRETS'
+app.secret_key = 'SECRETS'
 # app.config["MAIL_SERVER"] = 'smtp.gmail.com'
 # app.config["MAIL_PORT"] = 465
 # app.config["MAIL_USERNAME"] = ' hfbc.milw@gmail.com'
