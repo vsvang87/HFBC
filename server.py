@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, render_template, redirect, session,request,flash
 from model import db, User, Member, Event, connect_to_db
-from flask_mail import Mail, Message
+# from flask_mail import Mail, Message
 
 import smtplib
 import crud
