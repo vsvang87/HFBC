@@ -1,13 +1,15 @@
 from flask import Flask, jsonify, render_template, redirect, session,request,flash
 from model import db, User, Member, Event, connect_to_db
 
+import os
 import crud
 
 app = Flask(__name__)
 app.secret_key = 'SECRETS'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+#postgres://hfbc_user:y0WPJnoAkcFGrdKIpz3TbQDvX7rdaH3k@dpg-ci6f3dtgkuvufrd6lmjg-a.oregon-postgres.render.com/hfbc
 db.init_app(app)
 
 
