@@ -1,28 +1,11 @@
 from flask import Flask, jsonify, render_template, redirect, session,request,flash
 from model import db, User, Member, Event, connect_to_db
-# from flask_mail import Mail, Message
 
-# import smtplib
 import crud
-# import os
-# import stripe
-# os.environ['EMAIL_PASSWORD'] = '9a4c7dvisay'
-# PASSWORD = os.environ['EMAIL_PASSWORD']
 
 app = Flask(__name__)
 app.secret_key = 'SECRETS'
-# app.config["MAIL_SERVER"] = 'smtp.gmail.com'
-# app.config["MAIL_PORT"] = 465
-# app.config["MAIL_USERNAME"] = ' hfbc.milw@gmail.com'
-# app.config["MAIL_PASSWORD"] = None
-# app.config["MAIL_USE_TLS"] = False
-# app.config["MAIL_USE_SSL"] = True
-# flask_mail = Mail(app = None)
 
-
-# app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51NExkJJ4c4ZamGfp6EQd7l68VNd040Z9p9uo86X9O1WLdBmmpWoWVz0AVQZxwMYrEzPOiaGQaWDsXsl7CdmwvxjW00LHwa6iEZ'
-# app.config['STRIPE_SECRET_KEY'] = 'sk_test_51NExkJJ4c4ZamGfpZ9jw4LLvtqckTvIZ1Rw8aYUIa5YwiAadabChXubwhHgsQXgoum1mxTQ9JQ0JNdubZcTo2W9d00GJAgYPpX'
-# stripe.api_key = app.config['STRIPE_SECRET_KEY']
 
 #----------------------------Home Page------------------------------------#
 @app.route('/')
