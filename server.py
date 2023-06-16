@@ -6,6 +6,7 @@ import crud
 app = Flask(__name__)
 app.secret_key = 'SECRETS'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://db.sqlite3'
 
 db.init_app(app)
 
