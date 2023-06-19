@@ -9,7 +9,7 @@ app.secret_key = 'SECRETS'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
-#postgres://hfbc_user:y0WPJnoAkcFGrdKIpz3TbQDvX7rdaH3k@dpg-ci6f3dtgkuvufrd6lmjg-a.oregon-postgres.render.com/hfbc
+
 db.init_app(app)
 
 
